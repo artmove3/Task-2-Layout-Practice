@@ -1,0 +1,33 @@
+{
+  "name": "layout-practice",
+  "version": "1.0.0",
+  "description": "\"# Task-2-Layout-Practice\"",
+  "main": "index.js",
+  "private": "true",
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artmove3/Task-2-Layout-Practice.git"
+  },
+  "author": "Andrei Shilov artmove@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artmove3/Task-2-Layout-Practice/issues"
+  },
+  "homepage": "https://github.com/artmove3/Task-2-Layout-Practice#readme"
+}
