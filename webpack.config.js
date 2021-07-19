@@ -4,9 +4,13 @@ const path = require('path')
 
 const HTMLWebpackPlugin = require('html-webpack-plugin')  // для работы с html
 const {CleanWebpackPlugin} = require('clean-webpack-plugin') // для очистки папки dist от кэша, при определении "забираем" из объекта
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HTMLWebpackPugPlugin = require('html-webpack-pug-plugin')
 // //
 
-
+const isDev = process.env.NODE_ENV === 'development' // нужна, чтобы точно определять, в каком режиме собирает вебпак
+const isProd = !isDev
+const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}` // меняет имя output файла в зависимости от режима сборки
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -16,14 +20,28 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[contenthash].js'
+        filename: filename('js')
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        port: 3000,
+        hot: isDev,
+        open: true
+
     },
     plugins: [
         new HTMLWebpackPlugin({
             template: './index.html', 
-            favicon: '../favicons/favicon.ico'
+            favicon: '../favicons/favicon.ico',
+            minify: {
+                collapseWhitespace: isProd
+            }
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: filename('css')
+        }),
+        new HTMLWebpackPugPlugin()
     ],
     module: {
         rules: [
@@ -34,7 +52,10 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    MiniCssExtractPlugin.loader, 
+                    'css-loader',
+                ]
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
@@ -43,7 +64,16 @@ module.exports = {
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 use: ['file-loader']
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use:[
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     }
 }
+
