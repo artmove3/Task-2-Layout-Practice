@@ -5,7 +5,7 @@ const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')  // для работы с html
 const {CleanWebpackPlugin} = require('clean-webpack-plugin') // для очистки папки dist от кэша, при определении "забираем" из объекта
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HTMLWebpackPugPlugin = require('html-webpack-pug-plugin')
+// const HTMLWebpackPugPlugin = require('html-webpack-pug-plugin')
 // //
 
 const isDev = process.env.NODE_ENV === 'development' // нужна, чтобы точно определять, в каком режиме собирает вебпак
@@ -24,15 +24,16 @@ module.exports = {
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        port: 3000,
+        port: 42000,
         hot: isDev,
         open: true
 
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: './index.html', 
+            template: './pages/index.pug', 
             favicon: '../favicons/favicon.ico',
+            filename:'./pages/index.html',
             minify: {
                 collapseWhitespace: isProd
             }
@@ -41,7 +42,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: filename('css')
         }),
-        new HTMLWebpackPugPlugin()
+        // new HTMLWebpackPugPlugin()
     ],
     module: {
         rules: [
@@ -59,11 +60,11 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
-                use: ['file-loader']
+                type: 'asset/resource',
             },
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
-                use: ['file-loader']
+                type: 'asset/resource',
             },
             {
                 test: /\.s[ac]ss$/,
@@ -72,7 +73,11 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
-            }
+            },
+            {
+                test: /\.pug$/,
+                loader: 'pug-loader'
+              }
         ]
     }
 }
