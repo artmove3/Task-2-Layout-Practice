@@ -24,7 +24,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        port: 42000,
+        port: 7000,
         hot: isDev,
         open: true
 
@@ -33,7 +33,7 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: './pages/index.pug', 
             favicon: '../favicons/favicon.ico',
-            filename:'./pages/index.html',
+            filename:'./index.html',
             minify: {
                 collapseWhitespace: isProd
             }

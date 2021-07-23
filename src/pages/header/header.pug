@@ -1,12 +1,18 @@
 .header
-    .header__title
-        h1 Toxin placeholder
+    .header__logo
+        include ../../assets/logo/logo.pug
+
     .header__navbar 
         ul
             li О нас
             li Услуги
+                .dropdown-button
+                    include ../../assets/dropdown/expand.svg
             li Вакансии
             li Новости
             li Соглашения
-        .submit-buttons 
-// Необходимо разобраться с DevServer!
+                .dropdown-button
+                    include ../../assets/dropdown/expand.svg
+            .submit-buttons
+                button(type="submit") ВОЙТИ
+                button(type="submit") ЗАРЕГЕСТРИРОВАТЬСЯ
