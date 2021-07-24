@@ -14,5 +14,6 @@
                 .dropdown-button
                     include ../../assets/dropdown/expand.svg
             .submit-buttons
-                button(type="submit") ВОЙТИ
-                button(type="submit") ЗАРЕГЕСТРИРОВАТЬСЯ
+                include ../../assets/submit-button/submit-button.pug
+                +btn('submit', 'Enter')(class="btn btn__transparent")
+                +btn('submit', 'Sign up')(class="btn btn__painted")
