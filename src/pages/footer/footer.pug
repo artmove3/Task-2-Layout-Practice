@@ -1,0 +1,15 @@
+.footer
+    .footer__description
+        .description__logo
+            include ../../assets/logo/logo.pug
+        .description__text
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quas debitis.   
+    .footer__options
+        include ../../assets/mixins/listCreate.pug
+        +list("НАВИГАЦИЯ", "О нас", "Новости", "Служба поддержки", "Услуги")
+        +list("О НАС", "О сервисе", "Наша команда", "Вакансии", "Инвесторы")
+        +list("СЛУЖБА ПОДДЕРЖКИ", "Соглашения", "Сообщества", "Связь с нами")
+       
+    .footer__subscribe
+         
+.copyright

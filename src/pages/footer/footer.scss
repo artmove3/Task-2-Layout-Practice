@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    align-items: center;
+    &__description {
+        display: flex;
+        flex-direction: column;
+    }
+    &__description .description__logo {
+        display: flex;
+        align-items: center;
+    }
+    &__options {
+        display: flex;
+        justify-content: center;
+
+    }
+    &__options ul {
+        & li {
+            list-style: none;
+            margin-top: 5px;
+            &:first-child{
+                font-weight: 700;
+            }
+        }
+    }
+}
