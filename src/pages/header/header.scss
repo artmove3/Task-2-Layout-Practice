@@ -17,12 +17,15 @@
             align-items: center;
             list-style: none;
             margin-left: 45px;
+            color: rgba(31, 32, 65, 0.5);
             &:first-child {
                 font-weight: 700;
+                color: #000;
             }
         }
-        .submit-buttons button{
+        .submit-buttons .btn{
             margin-left: 40px;
+            font-weight: 700;
         }
     }
     

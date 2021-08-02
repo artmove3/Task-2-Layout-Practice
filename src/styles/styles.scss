@@ -1,9 +1,10 @@
 @import 'Montserrat.css';
 @import '../pages/header/header.scss';
 @import '../assets/logo/logo.scss';
-@import '../assets/dropdown/dropdown.scss';
+@import '../assets/arrows/dropdown.scss';
 @import '../assets/submit-button/submit-button.scss';
 @import '../pages/footer/footer.scss';
+
 
 $border: 1px solid red;
 
@@ -12,11 +13,12 @@ $border: 1px solid red;
     padding: 0;
     box-sizing: border-box;
     font-size: 14px;
+
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     & {
-        padding: 0 280px;
+        padding: 0 140px;
     }
 }
