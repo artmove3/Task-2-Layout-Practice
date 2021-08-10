@@ -4,7 +4,7 @@
 @import '../assets/arrows/dropdown.scss';
 @import '../assets/submit-button/submit-button.scss';
 @import '../pages/footer/footer.scss';
-
+@import '../pages/cards/searchRoom.scss';
 
 $border: 1px solid red;
 
@@ -13,7 +13,7 @@ $border: 1px solid red;
     padding: 0;
     box-sizing: border-box;
     font-size: 14px;
-
+    line-height: 24px;
 }
 
 body {
@@ -22,3 +22,65 @@ body {
         padding: 0 140px;
     }
 }
+
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.ui-datepicker {
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.ui-datepicker a{
+    text-align: center;
+    text-decoration: none;
+    color: rgba(31, 32, 65, 0.5);
+}
+
+.input__container {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 4px;
+
+}
+
+.input__container svg {
+    height: 100%;
+}
+.input__container input {
+    border: none;
+    &:focus{
+        outline: none;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 30px;
+    width: 380px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+} 

@@ -4,13 +4,18 @@
     padding: 10px 20px;
     border: none;
     color: #FFF;
+    text-transform: uppercase;
     font-size: 12px;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    font-weight: 700;
     &__transparent {
         background: none;
         color: #BC9CFF;
         border: 2px solid #BC9CFF;
         border-image: linear-gradient(#BC9CFF, #8BA4F9);
         border-image-slice: 1;
+    }
+    &__withArrow {
+        width: 100%;
     }
 }

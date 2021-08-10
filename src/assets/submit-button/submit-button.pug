@@ -1,2 +1,5 @@
 mixin btn(type, name)
     button(type=type)&attributes(attributes)= name
+mixin btna(type, name)
+    button(type=type)&attributes(attributes)= name
+        include ../arrows/forward.svg

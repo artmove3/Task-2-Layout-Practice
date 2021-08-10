@@ -1,0 +1,9 @@
+.card__date {
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    & .input__container input {
+        width: 20%;
+        flex-grow: 1;
+    }
+}

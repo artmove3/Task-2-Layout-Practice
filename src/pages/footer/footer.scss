@@ -29,7 +29,7 @@
             &:first-child{
                 font-weight: 700;
                 color: #000;
-                
+                font-size: 12px;
             }
             &:not(:first-child) {
                 margin-top: 20px;
@@ -37,16 +37,8 @@
         }
     }
     &__subscribe {
-        .subscribe__input {
-            padding: 12px 15px;
+        .input__container {
             margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            border: 1px solid rgba(31, 32, 65, 0.25);
-            border-radius: 4px;
-        }
-        .subscribe__input input {
-            border: none;
         }
     }
 

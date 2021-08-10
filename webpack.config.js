@@ -1,5 +1,5 @@
 const path = require('path')
-
+const webpack = require('webpack')
 // определяем здесь импорты для плагинов и реализовываем их как инстансы классов в массиве plugins
 
 const HTMLWebpackPlugin = require('html-webpack-plugin')  // для работы с html
@@ -42,7 +42,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: filename('css')
         }),
-        // new HTMLWebpackPugPlugin()
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ],
     module: {
         rules: [
