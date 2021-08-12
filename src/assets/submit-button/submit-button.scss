@@ -17,5 +17,13 @@
     }
     &__withArrow {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        svg {
+            align-self: flex-end;
+        }
+
+        
     }
+    
 }
