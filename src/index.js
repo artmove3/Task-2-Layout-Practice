@@ -1,5 +1,4 @@
 import './styles/styles.scss'
-// import * as $ from 'jquery'
 require('webpack-jquery-ui')
 
 $.datepicker.regional["ru"] = {
@@ -21,8 +20,28 @@ $.datepicker.regional["ru"] = {
     showMonthAfterYear: false,
     yearSuffix: "" };
 $.datepicker.setDefaults( $.datepicker.regional["ru"] )
+
 $(function(){
-    $('.datepicker').datepicker()
+    var firstDay
+    var lastDay
+    $('.datepicker__first').datepicker({
+        onSelect: function(_, inst) {
+            firstDay = inst.selectedDay
+        },
+        onClose: function(firstDay) {
+            $('.datepicker__last').datepicker( "option", "minDate", firstDay)
+        }
+    })
+
+    $('.datepicker__last').datepicker({
+        onSelect: function(_, inst) {
+            lastDay = inst.selectedDay
+        },
+        onClose: function(lastDay) {
+            $('.datepicker__first').datepicker( "option", "maxDate", lastDay)
+        }
+    })
+    
     
     
   })
