@@ -31,24 +31,24 @@ $(function(){
         onSelect: function(_, inst) {
             firstDay = inst.selectedDay
         },
-        onClose: function(firstDay) {
-            $('.datepicker__last').datepicker( "option", "minDate", firstDay)
-            if (!$('.datepicker__last').val()) {
-                $('.datepicker__last').focus()
-            }
-        }
+        // onClose: function(firstDay) {
+        //     $('.datepicker__last').datepicker( "option", "minDate", firstDay)
+        //     if (!$('.datepicker__last').val()) {
+        //         $('.datepicker__last').focus()
+        //     }
+        // }
     })
 
     $('.datepicker__last').datepicker({
         onSelect: function(_, inst) {
             lastDay = inst.selectedDay
         },
-        onClose: function(lastDay) {
-            $('.datepicker__first').datepicker( "option", "maxDate", lastDay)
-            if (!$('.datepicker__first').val()) {
-                $('.datepicker__first').focus()
-            }
-        }
+        // onClose: function(lastDay) {
+        //     $('.datepicker__first').datepicker( "option", "maxDate", lastDay)
+        //     if (!$('.datepicker__first').val()) {
+        //         $('.datepicker__first').focus()
+        //     }
+        // }
     })
     
     

@@ -18,9 +18,12 @@ $border: 1px solid red;
 
 body {
     font-family: 'Montserrat', sans-serif;
-    & {
-        padding: 0 140px;
+    & > hr {
+        padding: 0;
     }
+    padding: 0 140px;
+
+
 }
 
 h1 {
@@ -45,24 +48,32 @@ h3 {
     border-radius: 4px;
     background-color: #fff;
     width: auto;
+    padding: 20px;
 }
 
-.ui-datepicker td a{
+body .ui-datepicker td {
+    vertical-align: middle;
+}
+
+body .ui-datepicker td a{
     color: rgba(31, 32, 65, 0.5);
+    text-align: center;
 }
 
-.ui-state-default {
+.ui-state-default,
+.ui-state-highlight {
     width: 39.88px;
     height: 40px;
 }
 
 .ui-state-highlight {
-    text-align: center;
-    vertical-align: middle;
-    width: 39.88px;
-    height: 40px;
     border-radius: 50%;
     background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+
+}
+
+body .ui-datepicker td > .ui-state-highlight {
+color: #fff;
 }
 
 .ui-datepicker-calendar {
@@ -95,6 +106,7 @@ h3 {
 
 .input__container svg {
     height: 100%;
+    cursor: pointer;
 }
 .input__container input {
     border: none;

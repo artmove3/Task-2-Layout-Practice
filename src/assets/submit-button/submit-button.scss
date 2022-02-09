@@ -1,4 +1,5 @@
 .btn {
+    flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     border-radius: 22px;
     padding: 10px 20px;
@@ -18,10 +19,14 @@
     &__withArrow {
         width: 100%;
         display: flex;
+        flex-direction: row;
         justify-content: center;
+        position: relative;
         svg {
-            align-self: flex-end;
+            position: absolute;
+            right: 15px;
         }
+
 
         
     }

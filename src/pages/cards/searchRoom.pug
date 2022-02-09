@@ -5,18 +5,22 @@
         .date__entry
             h3 прибытие
             .input__container
-                input(type='text' class='datepicker datepicker__first' placeholder='ДД.ММ.ГГГГ')
-                include ../../assets/arrows/expand.svg
+                input#entry(type='text' class='datepicker datepicker__first' placeholder='ДД.ММ.ГГГГ')
+                label.button__expand(for="entry")
+                    include ../../assets/arrows/expand.svg
         .date__out
             h3 выезд
             .input__container
-                input(type='text' class='datepicker datepicker__last' placeholder='ДД.ММ.ГГГГ')
-                include ../../assets/arrows/expand.svg
+                input#out(type='text' class='datepicker datepicker__last' placeholder='ДД.ММ.ГГГГ')
+                label.button__expand(for="out")
+                    include ../../assets/arrows/expand.svg
     .card__guests
         h3 гости
         .input__container
-            input(type='text' placeholder='Сколько гостей')
-            include ../../assets/arrows/expand.svg
+            input#guests(type='text' placeholder='Сколько гостей')
+            label.button__expand(for="guests")
+                include ../../assets/arrows/expand.svg
+            
     .submit-buttons
         include ../../assets/submit-button/submit-button.pug
         +btna('submit', 'подобрать номер')(class="btn btn__withArrow")
