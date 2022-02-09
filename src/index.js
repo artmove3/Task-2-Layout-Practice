@@ -18,18 +18,24 @@ $.datepicker.regional["ru"] = {
     firstDay: 1,
     isRTL: false,
     showMonthAfterYear: false,
+    showButtonPanel: true,
+    selectOtherMonths: true,
     yearSuffix: "" };
 $.datepicker.setDefaults( $.datepicker.regional["ru"] )
 
 $(function(){
-    var firstDay
-    var lastDay
+    let firstDay
+    let lastDay
+
     $('.datepicker__first').datepicker({
         onSelect: function(_, inst) {
             firstDay = inst.selectedDay
         },
         onClose: function(firstDay) {
             $('.datepicker__last').datepicker( "option", "minDate", firstDay)
+            if (!$('.datepicker__last').val()) {
+                $('.datepicker__last').focus()
+            }
         }
     })
 
@@ -39,6 +45,9 @@ $(function(){
         },
         onClose: function(lastDay) {
             $('.datepicker__first').datepicker( "option", "maxDate", lastDay)
+            if (!$('.datepicker__first').val()) {
+                $('.datepicker__first').focus()
+            }
         }
     })
     
