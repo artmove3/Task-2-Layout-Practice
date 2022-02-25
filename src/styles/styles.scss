@@ -5,22 +5,25 @@
 @import '../assets/submit-button/submit-button.scss';
 @import '../pages/footer/footer.scss';
 @import '../pages/cards/searchRoom.scss';
-
-$border: 1px solid red;
+@import '../pages/copyright/copyright.scss';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
     line-height: 24px;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    padding: 0 140px;
     font-size: 14px;
+    font-weight: 400;
 
+}
+
+
+.container {
+    padding: 0 140px;
 }
 
 h1 {
@@ -97,7 +100,7 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
     overflow: hidden;
   }
 
-  .ui-datepicker-prev {
+.ui-datepicker-prev {
       background-image: url('../assets/arrows/backward.svg');
   }
 
@@ -107,6 +110,10 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
     justify-content: space-between;
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 4px;
+    
+    &:hover {
+        border: 1px solid rgba(31, 32, 65, 0.5);
+    }
 
 }
 

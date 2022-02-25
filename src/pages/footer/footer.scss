@@ -51,23 +51,3 @@
     }
 
 }
-
-
-.copyright {
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
-    align-items: center;
-    &__socials {
-        display: flex;
-        
-    }
-    &__socials *{
-        width: 24px;
-        height: 24px;
-        &:not(:last-child){
-            margin-right: 20px;
-        }
-
-    }
-}
