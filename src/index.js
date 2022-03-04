@@ -19,9 +19,10 @@ $.datepicker.regional["ru"] = {
     isRTL: false,
     showMonthAfterYear: false,
     showButtonPanel: true,
+    showOtherMonths: true,
     selectOtherMonths: true,
     yearSuffix: "" };
-$.datepicker.setDefaults( $.datepicker.regional["ru"] )
+$.datepicker.setDefaults( $.datepicker.regional["ru"] );
 
 $(function(){
     let firstDay
@@ -30,25 +31,24 @@ $(function(){
     $('.datepicker__first').datepicker({
         onSelect: function(_, inst) {
             firstDay = inst.selectedDay
+            inst.inline = true
+            
         },
-        // onClose: function(firstDay) {
-        //     $('.datepicker__last').datepicker( "option", "minDate", firstDay)
-        //     if (!$('.datepicker__last').val()) {
-        //         $('.datepicker__last').focus()
-        //     }
-        // }
+        onClose: function(_, inst) {
+            inst.inline = false
+        }
     })
 
     $('.datepicker__last').datepicker({
         onSelect: function(_, inst) {
             lastDay = inst.selectedDay
+            inst.inline = true
+            
         },
-        // onClose: function(lastDay) {
-        //     $('.datepicker__first').datepicker( "option", "maxDate", lastDay)
-        //     if (!$('.datepicker__first').val()) {
-        //         $('.datepicker__first').focus()
-        //     }
-        // }
+        onClose: function(_, inst) {
+            inst.inline = false
+        }
+        
     })
     
     

@@ -61,8 +61,13 @@ body .ui-datepicker td a{
     line-height: 30px;
 }
 
+body .ui-datepicker .ui-datepicker-other-month .ui-priority-secondary {
+    color: rgba(31, 32, 65, 0.25);
+}
+
 .ui-state-default,
-.ui-state-highlight {
+.ui-state-highlight,
+.ui-state-active {
     width: 39.88px;
     height: 40px;
     
@@ -72,6 +77,11 @@ body .ui-datepicker td a{
     border-radius: 50%;
     background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 
+}
+
+.ui-state-selected {
+    border-radius: 50%;
+    background: linear-gradient(180deg, #BC9CFF 0% 0%, #8BA4F9 100%);
 }
 
 body .ui-datepicker td > .ui-state-highlight {
