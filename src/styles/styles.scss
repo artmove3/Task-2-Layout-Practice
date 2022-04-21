@@ -60,6 +60,10 @@ body .ui-datepicker td a{
     text-align: center;
     line-height: 30px;
 }
+.ui-datepicker-calendar th span,
+body .ui-datepicker td a {
+    font-size: 12px;
+}
 
 body .ui-datepicker .ui-datepicker-other-month .ui-priority-secondary {
     color: rgba(31, 32, 65, 0.25);
@@ -114,14 +118,21 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
       background-image: url('../assets/arrows/backward.svg');
   }
 
+.ui-datepicker-calendar th span {
+    color: rgba(188, 156, 255, 1);
+}
+
+
 .input__container {
-    padding: 12px 15px;
+    padding: 8px 10px 8px 15px;
     display: flex;
     justify-content: space-between;
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 4px;
+    max-height: 44px;
     
-    &:hover {
+    &:focus,
+    &:active {
         border: 1px solid rgba(31, 32, 65, 0.5);
     }
 

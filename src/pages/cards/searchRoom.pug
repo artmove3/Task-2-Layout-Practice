@@ -21,9 +21,11 @@
             label.button__expand(for="guests")
                 include ../../assets/arrows/expand.svg
         .guest__counter
-            h3 взрослые
-            h3 дети
-            h3 младенцы
+            include ../../assets/mixins/counterCreate.pug
+            +counter('взрослые')
+            +counter('дети')
+            +counter('младенцы')
+
 
             
     .submit-buttons

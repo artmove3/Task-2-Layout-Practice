@@ -1,28 +1,49 @@
 .card__date {
     display: flex;
     justify-content: space-between;
-    .input__container {
+
+    & .input__container {
         width: 150px;
+        max-height: 44px;
         
     }
-    .input__container input {
+    & .input__container input {
         width: 20%;
         flex-grow: 1;
     }
+
     
 }
 .card__guests .input__container {
     position: relative;
+    width: 320px;
 
 }
+
+
 
 .guest__counter {
-    display: none;
+    display: none; 
     z-index: 2;
     position: absolute;
-    top: 400px;
+    top: 344px;
     width: 320px;
+    padding: 7px 7px 13px 15px;
     background-color: #fff;
     border: 1px solid rgba(31, 32, 65, 0.5);
+    border-radius: 0 0 5px 5px;
 }
 
+.counter__cell {
+    display: flex;
+    justify-content: space-between;
+    & .counter__controller {
+        display: flex;
+        & button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(31, 32, 65, 0.25);
+            border-radius: 50%;
+        }
+    }
+}

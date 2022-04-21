@@ -4,20 +4,24 @@
     border-radius: 22px;
     padding: 10px 20px;
     border: none;
-    line-height: 14.63px;
+    line-height: 15px;
     color: #FFF;
     text-transform: uppercase;
     font-size: 12px;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     font-weight: 700;
     cursor: pointer;
+    &:active {
+        opacity: 0.5;
+    }
+
     &__transparent {
         position: relative;
         background: #FFF;
         background-clip: padding-box;
         color: #BC9CFF;
         border: 2px solid transparent;
-
+        
         &:after {
             content: '';
             position: absolute;
@@ -25,7 +29,16 @@
             z-index: -1;
             margin: -2px;
             border-radius: inherit; 
-            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);;
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        }
+
+        &:active {
+            opacity: 1;
+            &::after {
+                opacity: 0.5; 
+                // ага :)
+            }
+            
         }
 
     }

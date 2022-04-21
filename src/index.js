@@ -27,12 +27,24 @@ $.datepicker.setDefaults( $.datepicker.regional["ru"] );
 $(function(){
     let firstDay
     let lastDay
+    const guestCounterBlock = document.querySelector('.card__guests .input__container')
+    const guestCounter = document.querySelector('.guest__counter')
 
+
+    guestCounterBlock.addEventListener('click', () => {
+        guestCounter.style.display = 'block'
+    })
+        
+
+    
     $('.datepicker__first').datepicker({
         onSelect: function(_, inst) {
             firstDay = inst.selectedDay
             inst.inline = true
-            
+            if(firstDay && lastDay) {
+
+                
+            }
         },
         onClose: function(_, inst) {
             inst.inline = false

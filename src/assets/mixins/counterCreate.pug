@@ -1,0 +1,9 @@
+mixin counter(...items)
+    .counter__cell
+        each item in items
+            .counter__title
+                h3= item
+            .counter__controller
+                button(class='buttonMinus') -
+                h3 0
+                button(class='buttonPlus') +
