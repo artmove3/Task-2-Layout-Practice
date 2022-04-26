@@ -22,9 +22,10 @@
                 include ../../assets/arrows/expand.svg
         .guest__counter
             include ../../assets/mixins/counterCreate.pug
-            +counter('взрослые')
-            +counter('дети')
-            +counter('младенцы')
+            +counter('взрослые', 'дети', 'младенцы')
+            .apply__buttons
+                h3(class='button__refresh') очистить
+                h3(class='button__apply') применить
 
 
             

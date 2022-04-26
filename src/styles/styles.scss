@@ -135,7 +135,10 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
     &:active {
         border: 1px solid rgba(31, 32, 65, 0.5);
     }
+}
 
+.input__container .active {
+    border: 1px solid rgba(31, 32, 65, 0.5);
 }
 
 .input__container svg {
