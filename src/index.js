@@ -1,5 +1,11 @@
 import './styles/styles.scss'
+
+require('jquery')
 require('webpack-jquery-ui')
+require('moment')
+require('./assets/extensions/jquery.comiseo.daterangepicker.js')
+require('./assets/extensions/jquery.comiseo.daterangepicker.min.js')
+
 
 
 $.datepicker.regional["ru"] = {
@@ -59,7 +65,7 @@ $(function(){
         guestCounterCells.forEach(cell => {
             cell.childNodes[1].childNodes[1].value = 0
         })
-        closeCounter()
+        refreshButton.style.visibility = 'hidden'
     })
 
     
@@ -94,34 +100,35 @@ $(function(){
 
     });
 
+    $('.datepicker__first').daterangepicker()
+
 
     
-    $('.datepicker__first').datepicker({
-        onSelect: function(_, inst) {
-            firstDay = inst.selectedDay
-            inst.inline = true
-            if(firstDay && lastDay) {
+    // $('.datepicker__first').datepicker({
+    //     onSelect: function(_, inst) {
+    //         firstDay = inst.selectedDay
+    //         inst.inline = true
+    //         if(firstDay && lastDay) {
 
                 
-            }
-        },
-        onClose: function(_, inst) {
-            inst.inline = false
-        }
-    })
+    //         }
+    //     },
+    //     onClose: function(_, inst) {
+    //         inst.inline = false
+    //     }
+    // })
 
-    $('.datepicker__last').datepicker({
-        onSelect: function(_, inst) {
-            lastDay = inst.selectedDay
-            inst.inline = true
+    // $('.datepicker__last').datepicker({
+    //     onSelect: function(_, inst) {
+    //         lastDay = inst.selectedDay
+    //         inst.inline = true
             
-        },
-        onClose: function(_, inst) {
-            inst.inline = false
-        }
+    //     },
+    //     onClose: function(_, inst) {
+    //         inst.inline = false
+    //     }
         
-    })
+    // })
     
     
-    
-  })
+ })
