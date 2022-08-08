@@ -1,16 +1,15 @@
 const path = require('path')
 const webpack = require('webpack')
-// определяем здесь импорты для плагинов и реализовываем их как инстансы классов в массиве plugins
 
-const HTMLWebpackPlugin = require('html-webpack-plugin')  // для работы с html
-const {CleanWebpackPlugin} = require('clean-webpack-plugin') // для очистки папки dist от кэша, при определении "забираем" из объекта
+
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// const HTMLWebpackPugPlugin = require('html-webpack-pug-plugin')
-// //
 
-const isDev = process.env.NODE_ENV === 'development' // нужна, чтобы точно определять, в каком режиме собирает вебпак
+
+const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
-const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}` // меняет имя output файла в зависимости от режима сборки
+const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -45,8 +44,11 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
-            "window.jQuery": "jquery'",
-            "window.$": "jquery"
+            "window.jQuery": "jquery",
+            "window.$": "jquery",
+        }),
+        new webpack.ProvidePlugin({
+            moment: 'moment'
         })
     ],
     module: {

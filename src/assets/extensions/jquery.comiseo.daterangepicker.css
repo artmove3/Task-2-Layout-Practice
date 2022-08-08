@@ -61,7 +61,7 @@
 .comiseo-daterangepicker-presets .ui-menu-item > * { /* fix v1.11 */
 	text-decoration: none;
 	display: block;
-	padding: 2px 0.4em;
+	/* padding: 2px 0.4em; */
 	line-height: 1.5;
 	min-height: 0; /* support: IE7 */
 }

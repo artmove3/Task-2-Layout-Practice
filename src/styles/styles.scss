@@ -7,6 +7,7 @@
 @import '../pages/cards/searchRoom.scss';
 @import '../pages/copyright/copyright.scss';
 @import '../pages/landing__page/landing__page.scss';
+@import '../assets/extensions/datepicker.scss';
 
 * {
     margin: 0;
@@ -42,87 +43,6 @@ h3 {
     font-weight: 700;
     text-transform: uppercase;
 }
- body .ui-datepicker {
-    border: 1px solid rgba(31, 32, 65, 0.25);
-    box-sizing: border-box;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-    border-radius: 4px;
-    background-color: #fff;
-    width: auto;
-    padding: 20px;
-}
-
-body .ui-datepicker td {
-    vertical-align: middle;
-}
-
-body .ui-datepicker td a{
-    color: rgba(31, 32, 65, 0.5);
-    text-align: center;
-    line-height: 30px;
-}
-.ui-datepicker-calendar th span,
-body .ui-datepicker td a {
-    font-size: 12px;
-}
-
-body .ui-datepicker .ui-datepicker-other-month .ui-priority-secondary {
-    color: rgba(31, 32, 65, 0.25);
-}
-
-.ui-state-default,
-.ui-state-highlight,
-.ui-state-active {
-    width: 39.88px;
-    height: 40px;
-    
-}
-
-.ui-state-highlight {
-    border-radius: 50%;
-    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-
-}
-
-.ui-state-selected {
-    border-radius: 50%;
-    background: linear-gradient(180deg, #BC9CFF 0% 0%, #8BA4F9 100%);
-}
-
-body .ui-datepicker td > .ui-state-highlight {
-    color: #fff;
-    font-weight: 700;
-}
-
-.ui-datepicker-calendar {
-    width: 500px;
-}
-
-body .ui-datepicker .ui-datepicker-header .ui-datepicker-title { 
-    font-size: 19px;
-    font-weight: 700; 
-}
-
-.ui-datepicker-prev, .ui-datepicker-next {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    cursor: pointer;
-    background-image: url('../assets/arrows/forward.svg');
-    background-repeat: no-repeat;
-    padding: 20px;
-    overflow: hidden;
-  }
-
-.ui-datepicker-prev {
-      background-image: url('../assets/arrows/backward.svg');
-  }
-
-.ui-datepicker-calendar th span {
-    color: rgba(188, 156, 255, 1);
-}
-
 
 .input__container {
     padding: 8px 10px 8px 15px;
