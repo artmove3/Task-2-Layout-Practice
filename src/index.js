@@ -33,16 +33,29 @@ $.datepicker.setDefaults( $.datepicker.regional["ru"] );
 
 $(function(){
 
-    $('.datepicker__first').daterangepicker({
-        datepickerOptions : {
-            numberOfMonths: 1,
-            minDate: 0,
-            maxDate: null
-        },
-        initialText: 'ДД.ММ.ГГГГ',
-
-
+    $('#entry').daterangepicker({
+            datepickerOptions : {
+                numberOfMonths: 1,
+                minDate: 0,
+                maxDate: null
+            },
+            initialText: 'ДД.ММ.ГГГГ',
+            cancelButtonText: '',
+            dateFormat: 'dd.mm.yy',
+            change: function() {
+                let str = $('#drp_autogen0').html().slice(13, 23)
+    
+                $('#out').html(str)
+                // if(str.length > 10) {
+    
+                // }
+            }
     })
+
+
+
+
+    $('#out').click(() => $('#entry').daterangepicker('open'))
     
     guestCounter('.card__guests .input__container')
 

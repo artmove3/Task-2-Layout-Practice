@@ -81,6 +81,14 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
     display: none;
 }
 
-// .comiseo-daterangepicker-triggerbutton .ui-button .ui-corner-all .ui-widget .comiseo-daterangepicker-bottom .comiseo-daterangepicker-vfit {
-//     background-color: #fff;
-// }
+.input__container button {
+   display: none;
+}
+
+.comiseo-daterangepicker-buttonpanel {
+    display: flex;
+}
+.comiseo-daterangepicker-buttonpanel button {
+    border: none;
+    background-color: #fff;
+}

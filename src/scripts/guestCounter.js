@@ -1,5 +1,5 @@
 export function guestCounter(selector) {
-        const guestCounterBlock = document.querySelector(selector)
+    const guestCounterBlock = document.querySelector(selector)
     const guestCounter = document.querySelector('.guest__counter')
     const guestCounterCells = document.querySelectorAll('.counter__cell')
     let currentCount = 0
