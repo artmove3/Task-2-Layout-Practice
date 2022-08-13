@@ -33,7 +33,7 @@ $.datepicker.setDefaults( $.datepicker.regional["ru"] );
 
 $(function(){
 
-    $('#entry').daterangepicker({
+    $('#datepicker').daterangepicker({
             datepickerOptions : {
                 numberOfMonths: 1,
                 minDate: 0,
@@ -43,19 +43,24 @@ $(function(){
             cancelButtonText: '',
             dateFormat: 'dd.mm.yy',
             change: function() {
-                let str = $('#drp_autogen0').html().slice(13, 23)
-    
-                $('#out').html(str)
-                // if(str.length > 10) {
-    
-                // }
+                let str1 = $('#drp_autogen0').html().slice(0, 10)
+                let str2 = $('#drp_autogen0').html().slice(13, 23)
+                $('#entry').html(str1)
+                // Глупо, но работает
+                if(str2[0] != 'a') { 
+                    $('#out').html(str2)
+                }
+            },
+            clear: function() {
+                $('#entry').html('ДД.ММ.ГГГГ')
+                $('#out').html('ДД.ММ.ГГГГ')
             }
     })
 
 
 
 
-    $('#out').click(() => $('#entry').daterangepicker('open'))
+    $('.card__date .input__container').click(() => $('#datepicker').daterangepicker('open'))
     
     guestCounter('.card__guests .input__container')
 
