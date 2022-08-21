@@ -58,6 +58,7 @@
 		},
 
 		_create: function() {
+			console.log("initialize");
 			this._dateRangePicker = buildDateRangePicker(this.element, this, this.options);
 		},
 
@@ -246,9 +247,17 @@
 
 		// called for each day in the datepicker before it is displayed
 		function beforeShowDay(date) {
+			const start = range.start && range.start.getTime();
+			const end = range.end && range.end.getTime();
+			date = date.getTime();
+
+			const highlight = start && ((date === start) || (end && start <= date && date <= end)) ? 'ui-state-highlight' : '';
+			const first = (start && end && start != end && date === start) ? 'ui-state-highlight-first' : '';
+			const last =  (end && start != end && date === end) ? 'ui-state-highlight-last' : '';
+
 			var result = [
 					true, // selectable
-					range.start && ((+date === +range.start) || (range.end && range.start <= date && date <= range.end)) ? 'ui-state-highlight' : '' // class to be added
+					highlight + ' ' + first + ' ' + last // class to be added
 				],
 				userResult = [true, '', ''];
 

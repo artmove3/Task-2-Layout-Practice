@@ -6,18 +6,30 @@ body .ui-datepicker {
     background-color: #fff;
     width: 320px;
     padding: 20px;
+
+}
+
+.ui-datepicker .ui-datepicker-calendar {
+    margin-right: 20px;
 }
 
 body .ui-datepicker td {
     vertical-align: middle;
+    padding: 0;
 }
 
 body .ui-datepicker td a,
-.ui-datepicker-unselectable .ui-state-disabled {
+body .ui-datepicker-calendar .ui-state-disabled > .ui-state-default {
     color: rgba(31, 32, 65, 0.5);
     text-align: center;
-    line-height: 30px;
+    line-height: 35px;
+
 }
+
+body .ui-datepicker-calendar .ui-state-disabled > .ui-state-default {
+    color: rgba(31, 32, 65, 0.25);
+}
+
 .ui-datepicker-calendar th span,
 body .ui-datepicker td a {
     font-size: 12px;
@@ -35,18 +47,45 @@ body .ui-datepicker .ui-datepicker-other-month .ui-priority-secondary {
     
 }
 
-.ui-state-highlight {
+.ui-datepicker-today > .ui-state-highlight {
     border-radius: 50%;
     background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 
 }
 
-.ui-state-selected {
+.ui-state-highlight .ui-state-active,
+.ui-state-highlight-first,
+.ui-state-highlight-last {
     border-radius: 50%;
-    background: linear-gradient(180deg, #BC9CFF 0% 0%, #8BA4F9 100%);
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
 }
 
-body .ui-datepicker td > .ui-state-highlight {
+.ui-state-highlight .ui-state-default {
+    background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%)
+}
+
+
+
+
+.ui-state-highlight-first .ui-state-default {
+    border-radius: 50% 0 0 50%;
+}
+.ui-state-highlight-last .ui-state-default {
+    border-radius: 0 50% 50% 0;
+}
+
+tr .ui-state-highlight:not(.ui-state-highlight-first):not(.ui-state-highlight-last) .ui-state-active  {
+    border-radius: 50%;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+}
+
+
+body .ui-datepicker td > .ui-state-highlight,
+body .ui-datepicker .ui-datepicker-current-day > .ui-state-default,
+.ui-state-highlight > .ui-priority-secondary,
+body .ui-datepicker .ui-state-highlight-first > .ui-state-default,
+body .ui-datepicker .ui-state-highlight-last > .ui-state-default
+{
     color: #fff;
     font-weight: 700;
 }
@@ -57,7 +96,8 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
     font-weight: 700; 
 }
 
-.ui-datepicker-prev, .ui-datepicker-next {
+.ui-datepicker-prev,
+.ui-datepicker-next {
     display: inline-block;
     width: 30px;
     height: 30px;

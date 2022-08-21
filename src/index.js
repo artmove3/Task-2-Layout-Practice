@@ -5,7 +5,7 @@ require('jquery')
 require('webpack-jquery-ui')
 require('moment')
 require('./assets/extensions/jquery.comiseo.daterangepicker.js')
-require('./assets/extensions/jquery.comiseo.daterangepicker.min.js')
+// require('./assets/extensions/jquery.comiseo.daterangepicker.min.js')
 
 
 $.datepicker.regional["ru"] = {
@@ -32,17 +32,18 @@ $.datepicker.regional["ru"] = {
 $.datepicker.setDefaults( $.datepicker.regional["ru"] );
 
 $(function(){
-
     $('#datepicker').daterangepicker({
             datepickerOptions : {
                 numberOfMonths: 1,
                 minDate: 0,
-                maxDate: null
+                maxDate: null,
             },
-            initialText: 'ДД.ММ.ГГГГ',
             cancelButtonText: '',
             dateFormat: 'dd.mm.yy',
             change: function() {
+                const range = $('#datepicker').daterangepicker('getRange');
+
+                // TODO: Use `range` instead of this
                 let str1 = $('#drp_autogen0').html().slice(0, 10)
                 let str2 = $('#drp_autogen0').html().slice(13, 23)
                 $('#entry').html(str1)
@@ -55,16 +56,9 @@ $(function(){
                 $('#entry').html('ДД.ММ.ГГГГ')
                 $('#out').html('ДД.ММ.ГГГГ')
             }
-    })
-
-
-
+    });
 
     $('.card__date .input__container').click(() => $('#datepicker').daterangepicker('open'))
     
-    guestCounter('.card__guests .input__container')
-
-
-    
-    
+    guestCounter('.card__guests .input__container') 
  })
