@@ -22,7 +22,10 @@ module.exports = {
         filename: filename('js')
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
+        static: {
+            directory: path.join(__dirname, 'dist')
+        },
+        // contentBase: path.resolve(__dirname, 'dist'),
         port: 7000,
         hot: isDev,
         open: true

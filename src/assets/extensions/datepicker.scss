@@ -5,11 +5,13 @@ body .ui-datepicker {
     border-radius: 4px;
     background-color: #fff;
     width: 320px;
+    height: 369px;
     padding: 20px;
 
 }
 
 .ui-datepicker .ui-datepicker-calendar {
+    margin-top: 20px;
     margin-right: 20px;
 }
 
@@ -94,6 +96,7 @@ body .ui-datepicker .ui-state-highlight-last > .ui-state-default
 body .ui-datepicker .ui-datepicker-header .ui-datepicker-title { 
     font-size: 19px;
     font-weight: 700; 
+    line-height: 23px;
 }
 
 .ui-datepicker-prev,
@@ -105,7 +108,6 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
     cursor: pointer;
     background-image: url('../assets/arrows/forward.svg');
     background-repeat: no-repeat;
-    padding: 20px;
     overflow: hidden;
   }
 
@@ -126,9 +128,20 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
 }
 
 .comiseo-daterangepicker-buttonpanel {
+    width: 320px;
     display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    
 }
 .comiseo-daterangepicker-buttonpanel button {
     border: none;
+    padding: 0 20px 0 20px;
     background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #BC9CFF;
+    text-transform: uppercase;
+    top: -35px;
 }

@@ -38,6 +38,8 @@ $(function(){
                 minDate: 0,
                 maxDate: null,
             },
+            applyButtonText: 'применить',
+            clearButtonText: 'очистить',
             cancelButtonText: '',
             dateFormat: 'dd.mm.yy',
             change: function() {
