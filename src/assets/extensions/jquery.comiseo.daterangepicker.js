@@ -58,7 +58,6 @@
 		},
 
 		_create: function() {
-			console.log("initialize");
 			this._dateRangePicker = buildDateRangePicker(this.element, this, this.options);
 		},
 

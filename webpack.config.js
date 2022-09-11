@@ -19,7 +19,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: filename('js')
+        filename: filename('js'),
     },
     devServer: {
         static: {
@@ -31,14 +31,16 @@ module.exports = {
         open: true
 
     },
+
     plugins: [
         new HTMLWebpackPlugin({
             template: './pages/index.pug', 
             favicon: '../favicons/favicon.ico',
             filename:'./index.html',
+            inject: true,
             minify: {
                 collapseWhitespace: isProd
-            }
+            },
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
