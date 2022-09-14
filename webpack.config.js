@@ -22,10 +22,9 @@ module.exports = {
         filename: filename('js'),
     },
     devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist')
-        },
-        // contentBase: path.resolve(__dirname, 'dist'),
+
+        contentBase: path.join(__dirname, 'dist'),
+
         port: 7000,
         hot: isDev,
         open: true
@@ -54,7 +53,7 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             moment: 'moment'
-        })
+        }),
     ],
     module: {
         rules: [
