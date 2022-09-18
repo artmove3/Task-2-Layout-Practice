@@ -6,6 +6,8 @@ export function guestCounter(selector) {
     const inputContent = document.querySelector(selector + ' p')
     const applyButton = document.querySelector('.apply__buttons .button__apply')
     const refreshButton = document.querySelector('.apply__buttons .button__refresh')
+    let totalCount = 0
+    localStorage.setItem('count', 0)
 
     function setCount(num) {
         let count = 0
@@ -17,6 +19,7 @@ export function guestCounter(selector) {
         if(count == 1) inputContent.innerHTML = `${count} гость`
         if(count > 1 && count < 5) inputContent.innerHTML = `${count} гостя`
         if(count >= 5) inputContent.innerHTML = `${count} гостей`
+        return count
     }
     
     function openCounter() {
@@ -31,9 +34,13 @@ export function guestCounter(selector) {
         openCounter()
     })
 
-    applyButton.addEventListener('click', () => closeCounter())
+    applyButton.addEventListener('click', () => {
+        closeCounter()
+        totalResult()
+        console.log(JSON.parse(localStorage.getItem('count')))
+        })
     refreshButton.addEventListener('click', () => {
-        setCount(0)
+        totalCount = setCount(0)
         currentCount = 0
         guestCounterCells.forEach(cell => {
             cell.childNodes[1].childNodes[1].value = 0
@@ -50,7 +57,7 @@ export function guestCounter(selector) {
 
 
         buttonMinus.addEventListener('click', () => {
-           setCount(--currentCount)
+            totalCount = setCount(--currentCount)
             currentCounter.value--
             if(currentCounter.value == 0) {
                 buttonMinus.setAttribute('disabled','')
@@ -58,7 +65,7 @@ export function guestCounter(selector) {
         })
 
         buttonPlus.addEventListener('click', () => {
-            setCount(++currentCount)
+            totalCount = setCount(++currentCount)
             currentCounter.value++
             if(currentCounter.value > 0) {
                 buttonMinus.removeAttribute('disabled','')
@@ -68,4 +75,9 @@ export function guestCounter(selector) {
 
 
     });
+    function totalResult() {
+        localStorage.setItem('count', JSON.stringify(totalCount))
+        return totalCount
+    }
 }
+

@@ -13,18 +13,20 @@ const roomList = require('./pages/roomList/roomlist.pug')
 const page = document.querySelector('.page')
 
 const pageList = [landingPage]
-
+const guestCount = {}
 
 function pageChanger() {
     let currentPage = pageList[pageList.length - 1]
 
-
-    page.innerHTML = currentPage()
+    guestCount.count = JSON.parse(localStorage.getItem('count'))
+    console.log(guestCount)
+    page.innerHTML = currentPage(guestCount)
 }
 
 $(function(){
     pageChanger()
 
+    guestCounter('.card__guests .input__container')
 
     $('#apply__presets').click(() => {
         pageList.push(roomList)
@@ -39,7 +41,7 @@ $(function(){
 
     $('.card__date .input__container').click(() => $('#datepicker').daterangepicker('open'))
     
-    guestCounter('.card__guests .input__container')
+
 
 
 
