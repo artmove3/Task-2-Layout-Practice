@@ -1,4 +1,23 @@
 .roomList
-    .container
-        h1=count
-        h1 Presets applyed
+    .roomList__options
+        h3 даты пребывания в отеле
+        .input__container
+            .dates
+                p 12.12.1221
+            label.button__expand(for="dates")
+                include ../../assets/arrows/expand.svg
+        h3 гости
+        .input__container
+            .guests
+                p=count
+            label.button__expand(for="guests")
+                include ../../assets/arrows/expand.svg
+        .options__prices
+            h3 диапазон цены
+            p 5 000₽ - 10 000₽
+            .price__range
+            p Стоимость за сутки пребывания в номере
+        .options__rules
+            h3 правила дома
+            include ../../assets/mixins/listCreate.pug
+            +listCheckbox('Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до 10 человек)')

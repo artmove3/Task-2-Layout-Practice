@@ -2,3 +2,9 @@ mixin list(...items)
     ul
         each item in items
             li= item
+mixin listCheckbox(...items)
+    ul
+        each item in items 
+            input(id=index type="checkbox")
+            label(for="index") 
+                li= item

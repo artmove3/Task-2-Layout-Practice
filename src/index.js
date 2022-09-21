@@ -19,8 +19,10 @@ function pageChanger() {
     let currentPage = pageList[pageList.length - 1]
 
     guestCount.count = JSON.parse(localStorage.getItem('count'))
-    console.log(guestCount)
     page.innerHTML = currentPage(guestCount)
+    if(currentPage != landingPage) {
+        roomListListener()
+    }
 }
 
 $(function(){
@@ -40,6 +42,7 @@ $(function(){
     datepicker.deploy()
 
     $('.card__date .input__container').click(() => $('#datepicker').daterangepicker('open'))
+
     
 
 
@@ -48,3 +51,6 @@ $(function(){
     
     
 })
+
+function roomListListener() {}
+
