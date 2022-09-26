@@ -7,5 +7,49 @@
         .input__container {
             margin-bottom: 20px;
         }
+
+
+        .options__rules ul  {
+            display: flex;
+            flex-direction: column;
+        }
+        .options__rules ul li {
+            list-style-type: none;
+        }
+
+        .options__rules .rule__option {
+            display: flex;
+        }
+        .options__rules .rule__option input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+        .options__rules .rule__option input+label {
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+          }
+        .options__rules .rule__option input+label::before {
+            content: '';
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border: 1px solid #adb5bd;
+            border-radius: 0.25em;
+            margin-right: 0.5em;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+
+        }
+        .options__rules .rule__option input:checked+label::before {
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            background-image: url("../assets/arrows/check.svg");
+            
+        }
+
     }
 }
