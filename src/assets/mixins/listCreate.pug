@@ -5,7 +5,7 @@ mixin list(...items)
 mixin listCheckbox(...items)
     ul
         each item, index in items
-            .rule__option 
+            .checkbox_list
                 input(id=index type="checkbox")
                 label(for=index) 
                     li= item

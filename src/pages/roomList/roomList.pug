@@ -1,23 +1,47 @@
 .roomList
     .roomList__options
-        h3 даты пребывания в отеле
-        .input__container
-            .dates
-                p 12.12.1221
-            label.button__expand(for="dates")
-                include ../../assets/arrows/expand.svg
-        h3 гости
-        .input__container
-            .guests
-                p=count
-            label.button__expand(for="guests")
-                include ../../assets/arrows/expand.svg
-        .options__prices
+        .roomList__options_dates
+            h3 даты пребывания в отеле
+            .input__container
+                .dates
+                    p 12.12.1221
+                label.button__expand(for="dates")
+                    include ../../assets/arrows/expand.svg
+        .roomList__options_guests
+            h3 гости
+            .input__container
+                .guests
+                    p=count
+                label.button__expand(for="guests")
+                    include ../../assets/arrows/expand.svg
+        .roomList__options_prices
             h3 диапазон цены
             p 5 000₽ - 10 000₽
             .price__range
             p Стоимость за сутки пребывания в номере
-        .options__rules
+        .roomList__options_rules
             h3 правила дома
             include ../../assets/mixins/listCreate.pug
             +listCheckbox('Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до 10 человек)')
+        .roomList__options_accessibility
+            h3 доступность
+            ul
+                .checkbox_list
+                    input(id=4 type="checkbox")
+                    label(for=4)
+                        li Широкий коридор
+                        p Ширина коридоров в номере не менее 91 см.
+                .checkbox_list
+                    input(id=5 type="checkbox")
+                    label(for=5)
+                        li Помощник для инвалидов
+                        p На 1 этаже вас встретит специалист  и проводит до номера.
+        .roomList__options_comfort
+            h3 удобства номера
+            .input__container
+        .roomList__options_optional-comfort
+            h3 дополнительные удобства
+            include ../../assets/arrows/expand.svg
+            include ../../assets/mixins/listCreate.pug
+            +listCheckbox('Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь')
+                
