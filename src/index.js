@@ -19,6 +19,9 @@ function pageChanger() {
     let currentPage = pageList[pageList.length - 1]
 
     guestCount.count = JSON.parse(localStorage.getItem('count'))
+    guestCount.countArr = JSON.parse(localStorage.getItem('countArr'))
+    guestCount.counterStr = JSON.parse(localStorage.getItem('counterStr'))
+
     page.innerHTML = currentPage(guestCount)
     if(currentPage != landingPage) {
         roomListListener()
@@ -52,5 +55,7 @@ $(function(){
     
 })
 
-function roomListListener() {}
+function roomListListener() {
+    guestCounter('.roomList__options_guests .input__container', true)
+}
 

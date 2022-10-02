@@ -7,7 +7,10 @@
         &_dates,
         &_guests,
         &_prices,
-        &_rules {
+        &_rules,
+        &_accessibility,
+        &_comfort,
+        &_optional-comfort {
             margin-top: 30px;
         }
 
@@ -26,8 +29,20 @@
             display: flex;
         }
         
-        &_accessibility ul .checkbox_list label:not(:first-child) {
+        &_accessibility .checkbox_list .checkbox_description {
             flex-direction: column;
+            justify-content: flex-start;
+            li {
+                font-weight: 700;
+            }
+        }
+        &_accessibility .checkbox_list label::before {
+            align-self: flex-start;
+        }
+
+        &_optional-comfort .optional-comfort_dropdown {
+            display: flex;
+            justify-content: space-between;
         }
 
     }

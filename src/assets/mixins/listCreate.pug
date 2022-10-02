@@ -2,10 +2,10 @@ mixin list(...items)
     ul
         each item in items
             li= item
-mixin listCheckbox(...items)
+mixin listCheckbox(startWith, [...items])
     ul
         each item, index in items
             .checkbox_list
-                input(id=index type="checkbox")
-                label(for=index) 
+                input(id=startWith+index type="checkbox")
+                label(for=startWith+index) 
                     li= item
