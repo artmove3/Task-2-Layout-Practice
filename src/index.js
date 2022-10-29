@@ -1,6 +1,6 @@
 import {guestCounter} from './scripts/guestCounter.js'
 import './styles/styles.scss'
-import {calendar} from './scripts/calendar'
+import {Calendar} from './scripts/Calendar'
 import './pages/roomList/roomList.js'
 
 require('jquery')
@@ -13,16 +13,18 @@ const roomList = require('./pages/roomList/roomlist.pug')
 const page = document.querySelector('.page')
 
 const pageList = [landingPage]
-const guestCount = {}
+const pageParams = {}
+const datepicker = new Calendar('#datepicker')
 
 function pageChanger() {
     let currentPage = pageList[pageList.length - 1]
+    
+    pageParams.count = JSON.parse(localStorage.getItem('count'))
+    pageParams.countArr = JSON.parse(localStorage.getItem('countArr'))
+    pageParams.counterStr = JSON.parse(localStorage.getItem('counterStr'))
+    pageParams.dateStr = JSON.parse(localStorage.getItem('dateStr'))
 
-    guestCount.count = JSON.parse(localStorage.getItem('count'))
-    guestCount.countArr = JSON.parse(localStorage.getItem('countArr'))
-    guestCount.counterStr = JSON.parse(localStorage.getItem('counterStr'))
-
-    page.innerHTML = currentPage(guestCount)
+    page.innerHTML = currentPage(pageParams)
     if(currentPage != landingPage) {
         roomListListener()
     }
@@ -40,7 +42,7 @@ $(function(){
     
     
 
-    const datepicker = new calendar('#datepicker')
+    
     datepicker.init()
     datepicker.deploy()
 
@@ -56,6 +58,9 @@ $(function(){
 })
 
 function roomListListener() {
+    datepicker.init()
+    datepicker.deploy()
     guestCounter('.roomList__options_guests .input__container', true)
+     $('.roomList__options_dates .input__container').click(() => $('#datepicker').daterangepicker('open'))
 }
 

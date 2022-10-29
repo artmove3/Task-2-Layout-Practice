@@ -3,15 +3,13 @@
         .roomList__options_dates
             h3 даты пребывания в отеле
             .input__container
-                .dates
-                    p 12.12.1221
+                p#dates=dateStr
                 label.button__expand(for="dates")
                     include ../../assets/arrows/expand.svg
         .roomList__options_guests
             h3 гости
             .input__container
-                .guests
-                    p=counterStr
+                p#guests=counterStr
                 label.button__expand(for="guests") 
                     include ../../assets/arrows/expand.svg
             .guest__counter
@@ -33,14 +31,14 @@
             h3 доступность
             ul
                 .checkbox_list
-                    input(id=4 type="checkbox")
-                    label(for=4)
+                    input(id=3 type="checkbox")
+                    label(for=3)
                         .checkbox_description
                             li Широкий коридор
                             p Ширина коридоров в номере не менее 91 см.
                 .checkbox_list
-                    input(id=5 type="checkbox")
-                    label(for=5)
+                    input(id=4 type="checkbox")
+                    label(for=4)
                         .checkbox_description
                             li Помощник для инвалидов
                             p На 1 этаже вас встретит специалист  и проводит до номера.
@@ -56,5 +54,5 @@
                 h3 дополнительные удобства
                 include ../../assets/arrows/expand.svg
             include ../../assets/mixins/listCreate.pug
-            +listCheckbox(6, ['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
+            +listCheckbox(5, ['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
                 

@@ -1,4 +1,4 @@
-export class calendar {
+export class Calendar {
     constructor(selector) {
         this.selector = selector
     }
@@ -10,8 +10,8 @@ export class calendar {
             currentText: "Сегодня",
             monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
             "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
-            monthNamesShort: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн",
-            "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек" ],
+            monthNamesShort: [ "янв", "фев", "мар", "апр", "май", "июн",
+            "июл", "авг", "сен", "окт", "ноя", "дек" ],
             dayNames: [ "воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота" ],
             dayNamesShort: [ "вск", "пнд", "втр", "срд", "чтв", "птн", "сбт" ],
             dayNamesMin: [ "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб" ],
@@ -27,6 +27,8 @@ export class calendar {
         $.datepicker.setDefaults( $.datepicker.regional["ru"] );
     }
     deploy() {
+        const getRange = () => $(this.selector).daterangepicker('getRange');
+
         $(this.selector).daterangepicker({
             datepickerOptions : {
                 numberOfMonths: 1,
@@ -38,21 +40,26 @@ export class calendar {
             cancelButtonText: '',
             dateFormat: 'dd.mm.yy',
             change: function() {
-                const range = $(this.selector).daterangepicker('getRange');
+                const range = getRange()
+                console.log(range)
+                $('#entry').html(range.start.toLocaleDateString())
+                if(range.end) { 
+                    $('#out').html(range.end.toLocaleDateString())
+                    // here i take month shortname from object above 
+                    const totalDate = `${range.start.getDate()} ${$.datepicker.regional["ru"].monthNamesShort[range.start.getMonth()]}  - ${range.end.getDate()} ${$.datepicker.regional["ru"].monthNamesShort[range.end.getMonth()]}`
+                    localStorage.setItem('dateStr', JSON.stringify(totalDate))
+                    $('#dates').html(totalDate)
 
-                // TODO: Use `range` instead of this
-                let str1 = $('#drp_autogen0').html().slice(0, 10)
-                let str2 = $('#drp_autogen0').html().slice(13, 23)
-                $('#entry').html(str1)
-                // Глупо, но работает
-                if(str2[0] != 'a') { 
-                    $('#out').html(str2)
                 }
             },
+
+            close: function() {},
             clear: function() {
                 $('#entry').html('ДД.ММ.ГГГГ')
                 $('#out').html('ДД.ММ.ГГГГ')
+                localStorage.setItem('dateStr', 'ДД.ММ.ГГГГ')
             }
+            
     });
     }
 }
