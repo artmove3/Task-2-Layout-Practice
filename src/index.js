@@ -1,7 +1,7 @@
 import {guestCounter} from './scripts/guestCounter.js'
 import './styles/styles.scss'
 import {Calendar} from './scripts/Calendar'
-import './pages/roomList/roomList.js'
+import {optionSwitch} from './pages/roomList/roomList.js'
 
 require('jquery')
 require('webpack-jquery-ui')
@@ -62,5 +62,6 @@ function roomListListener() {
     datepicker.deploy()
     guestCounter('.roomList__options_guests .input__container', true)
      $('.roomList__options_dates .input__container').click(() => $('#datepicker').daterangepicker('open'))
+     optionSwitch()
 }
 

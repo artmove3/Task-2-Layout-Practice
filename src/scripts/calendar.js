@@ -41,7 +41,6 @@ export class Calendar {
             dateFormat: 'dd.mm.yy',
             change: function() {
                 const range = getRange()
-                console.log(range)
                 $('#entry').html(range.start.toLocaleDateString())
                 if(range.end) { 
                     $('#out').html(range.end.toLocaleDateString())
