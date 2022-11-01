@@ -1,19 +1,25 @@
-export function guestCounter(selector, hasBabies = false) {
+export function guestCounter(selector, modifier = '') {
     const guestCounterBlock = document.querySelector(selector)
-    const guestCounter = document.querySelector('.guest__counter')
-    const guestCounterCells = document.querySelectorAll('.counter__cell')
+    const guestCounter = document.querySelector(selector + '+.guest__counter')
+    const guestCounterCells = document.querySelectorAll(selector + '+.guest__counter .counter__cell')
     let currentCount = 0
     const inputContent = document.querySelector(selector + ' p')
-    const applyButton = document.querySelector('.apply__buttons .button__apply')
-    const refreshButton = document.querySelector('.apply__buttons .button__refresh')
+    const applyButton = document.querySelector(selector + '+.guest__counter .apply__buttons .button__apply')
+    const refreshButton = document.querySelector(selector + '+.guest__counter .apply__buttons .button__refresh')
     let countArr = JSON.parse(localStorage.getItem('countArr'))
 
     // set initial data for first guestCounter (which is without babies)
 
-    if(hasBabies == false) {
+    if(modifier == '') {
         countArr = [0, 0, 0]
         localStorage.clear()
     }
+
+    if(modifier == 'furniture') {
+        const countArrFurn = [0, 0, 0]
+        countArr = countArrFurn
+    }
+
     let totalCount = 0
 
     // counting totalCount based on countArr 
@@ -22,26 +28,31 @@ export function guestCounter(selector, hasBabies = false) {
         return totalCount
     }
 
-    reduceArr(countArr)
     
     
 
     function setCount(num) {
         let count = 0
-        if(hasBabies) count = currentCount
+        if(modifier) count = currentCount
         count += num
         if(num == 0 || count == 0) {
-            
-            inputContent.innerHTML = `Сколько гостей`
+            if(modifier =='furniture') inputContent.innerHTML = `Удобства номера`
+            else {
+                inputContent.innerHTML = `Сколько гостей`
+            }
         }
         if(count == 1) inputContent.innerHTML = `${count} гость`
         if(count > 1 && count < 5) inputContent.innerHTML = `${count} гостя`
         if(count >= 5) inputContent.innerHTML = `${count} гостей`
-        if(countArr[2] && hasBabies) {
+        if(countArr[2] && modifier == 'babyCount') {
             let babyCount = +countArr[2]
             if(babyCount == 1) inputContent.innerHTML += `, ${babyCount} младенец`
             if(babyCount > 1 && babyCount < 5) inputContent.innerHTML += `, ${babyCount} младенца`
             if(babyCount >= 5) inputContent.innerHTML += `, ${babyCount} младенцев`
+        }
+        if(modifier == 'furniture') {
+            let countArrFurn = JSON.parse(localStorage.getItem('countArrFurn'))
+            inputContent.innerHTML = `${countArrFurn[0]} спальни, ${countArrFurn[1]} кровати, ${countArrFurn[2]} ванные комнаты`
         }
     }
     
@@ -106,11 +117,12 @@ export function guestCounter(selector, hasBabies = false) {
 
     });
     function totalResult() {
-
-        localStorage.setItem('countArr', JSON.stringify(countArr))
+        if(modifier == 'furniture') localStorage.setItem('countArrFurn', JSON.stringify(countArr))
+        else {
+            localStorage.setItem('countArr', JSON.stringify(countArr))
+        }
         totalCount = reduceArr(countArr)
         localStorage.setItem('count', JSON.stringify(totalCount))
-        
 
         return totalCount
     }

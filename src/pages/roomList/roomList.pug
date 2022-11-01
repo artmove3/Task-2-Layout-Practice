@@ -51,9 +51,15 @@
             h3 удобства номера
             .input__container
                 .room_comfort
-                    p 2 спальни, 2 кровати
+                    p Удобства номера
                 label.button__expand(for="room_comfort")
                     include ../../assets/arrows/expand.svg
+            .guest__counter
+                include ../../assets/mixins/counterCreate.pug
+                +counter('спальни', 'кровати', 'ванные комнаты')
+                .apply__buttons
+                    h3(class='button__refresh') очистить
+                    h3(class='button__apply') применить
         .roomList__options_optional-comfort
             .optional-comfort_dropdown
                 .input__container

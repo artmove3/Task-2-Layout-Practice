@@ -60,7 +60,9 @@ $(function(){
 function roomListListener() {
     datepicker.init()
     datepicker.deploy()
-    guestCounter('.roomList__options_guests .input__container', true)
+    guestCounter('.roomList__options_comfort .input__container', 'furniture')
+    guestCounter('.roomList__options_guests .input__container', 'babyCount')
+    
      $('.roomList__options_dates .input__container').click(() => $('#datepicker').daterangepicker('open'))
      optionSwitch()
 }
