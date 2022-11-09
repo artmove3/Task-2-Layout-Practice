@@ -53,6 +53,7 @@ export function guestCounter(selector, modifier = '') {
         if(modifier == 'furniture') {
             let countArrFurn = JSON.parse(localStorage.getItem('countArrFurn'))
             inputContent.innerHTML = `${countArrFurn[0]} спальни, ${countArrFurn[1]} кровати, ${countArrFurn[2]} ванные комнаты`
+            
         }
     }
     

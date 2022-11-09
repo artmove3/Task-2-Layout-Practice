@@ -1,7 +1,7 @@
 import {guestCounter} from './scripts/guestCounter.js'
 import './styles/styles.scss'
 import {Calendar} from './scripts/Calendar'
-import {optionSwitch} from './pages/roomList/roomList.js'
+import {optionSwitch, createRoomList} from './pages/roomList/roomList.js'
 
 require('jquery')
 require('webpack-jquery-ui')
@@ -36,6 +36,11 @@ $(function(){
     guestCounter('.card__guests .input__container')
 
     $('#apply__presets').click(() => {
+        let adultCount = $('.guest__counter .counter__controller #0').get(0).value
+        if(adultCount == 0) {
+            alert('please, enter at least one adult')
+            return
+        }
         pageList.push(roomList)
         pageChanger()
     })
@@ -62,6 +67,7 @@ function roomListListener() {
     datepicker.deploy()
     guestCounter('.roomList__options_comfort .input__container', 'furniture')
     guestCounter('.roomList__options_guests .input__container', 'babyCount')
+    createRoomList(21)
     
      $('.roomList__options_dates .input__container').click(() => $('#datepicker').daterangepicker('open'))
      optionSwitch()

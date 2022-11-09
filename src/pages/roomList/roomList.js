@@ -18,3 +18,12 @@ export function optionSwitch() {
     })
     
 }
+
+export function createRoomList(roomQuantity) {
+    for(let i = 1; i <= roomQuantity; i++){
+    const roomListContainer = document.querySelector('.roomList__content_list')
+    const room = document.createElement(`div`)
+    room.setAttribute('class', 'roomList__content_room')
+    roomListContainer.appendChild(room)
+    }
+}

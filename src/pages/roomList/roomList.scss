@@ -1,10 +1,10 @@
 .roomList {
+    display: flex;
     padding: 30px 140px;
 
     &__options {
         width: 435px;
         
-        &_dates,
         &_guests,
         &_prices,
         &_rules,
@@ -85,5 +85,30 @@
             display: none;
         }
 
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-left: 60px;
+
+        & h1 {
+            margin-bottom: 20px;
+        }
+        &_list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &_room {
+            width: 270px;
+            height: 257px;
+            border: 1px solid red;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        &_room:not(:nth-child(3n)) {
+            margin-right: 12px;
+        }
     }
 }

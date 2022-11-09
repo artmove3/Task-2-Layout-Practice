@@ -3,7 +3,7 @@
         .roomList__options_dates
             h3 даты пребывания в отеле
             .input__container
-                p#dates=dateStr
+                p#dates=dateStr||'ДД.ММ.ГГГГ'
                 label.button__expand(for="dates")
                     include ../../assets/arrows/expand.svg
         .roomList__options_guests
@@ -67,4 +67,7 @@
                     include ../../assets/arrows/expand.svg
             include ../../assets/mixins/listCreate.pug
             +listCheckbox(8, ['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
-                
+    .roomList__content
+        .roomList__content_title
+            h1 Номера, которые мы для вас подобрали
+        .roomList__content_list           
