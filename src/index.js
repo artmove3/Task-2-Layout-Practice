@@ -1,7 +1,7 @@
 import {guestCounter} from './scripts/guestCounter.js'
 import './styles/styles.scss'
 import {Calendar} from './scripts/Calendar'
-import {optionSwitch, createRoomList} from './pages/roomList/roomList.js'
+import {optionSwitch, createRoomList, createPageList} from './pages/roomList/roomList.js'
 
 require('jquery')
 require('webpack-jquery-ui')
@@ -67,7 +67,8 @@ function roomListListener() {
     datepicker.deploy()
     guestCounter('.roomList__options_comfort .input__container', 'furniture')
     guestCounter('.roomList__options_guests .input__container', 'babyCount')
-    createRoomList(21)
+    createRoomList(12)
+    createPageList(3)
     
      $('.roomList__options_dates .input__container').click(() => $('#datepicker').daterangepicker('open'))
      optionSwitch()

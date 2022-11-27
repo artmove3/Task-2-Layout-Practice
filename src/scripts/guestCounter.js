@@ -52,7 +52,7 @@ export function guestCounter(selector, modifier = '') {
         }
         if(modifier == 'furniture') {
             let countArrFurn = JSON.parse(localStorage.getItem('countArrFurn'))
-            inputContent.innerHTML = `${countArrFurn[0]} спальни, ${countArrFurn[1]} кровати, ${countArrFurn[2]} ванные комнаты`
+            inputContent.innerHTML = `${countArrFurn[0]} спальни, ${countArrFurn[1]} кровати...`
             
         }
     }
@@ -68,7 +68,13 @@ export function guestCounter(selector, modifier = '') {
     }
 
     guestCounterBlock.addEventListener('click', () => {
-        openCounter()
+        if(guestCounter.style.display === 'block'){
+            closeCounter()
+            guestCounterBlock.style.borderRadius = '5px'
+        }else {
+            openCounter()
+            guestCounterBlock.style.borderRadius = '5px 5px 0 0'
+        } 
     })
 
     applyButton.addEventListener('click', () => {
