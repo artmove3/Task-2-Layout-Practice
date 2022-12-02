@@ -1,4 +1,4 @@
-
+import * as image_14 from '../../assets/pictures/image_14.jpg'
 
 export const roomObjArray = [
     {
