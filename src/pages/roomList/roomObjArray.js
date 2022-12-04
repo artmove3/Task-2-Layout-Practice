@@ -1,9 +1,9 @@
-import * as image_14 from '../../assets/pictures/image_14.jpg'
+import Image14 from "../../assets/pictures/image_14.jpg";
 
 export const roomObjArray = [
     {
         roomNumber: Math.floor((Math.random()) * 100),
-        background: '',
+        background: Image14,
         isLux: true,
         pricePerDay: 9990,
         comments: Math.floor((Math.random()) * 10),

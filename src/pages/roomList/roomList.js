@@ -61,7 +61,7 @@ export function createRoomList(roomQuantity) {
     roomListContainer.appendChild(room)
     const luxWord = document.querySelector(`.room${i} .room__number h2`)
     if(!roomObjArray[roomObjPos].isLux) luxWord.style.display = 'none'
-    const roomBackground = document.querySelector('.room__background')
+    const roomBackground = document.querySelector(`.room${i}  .room__background`)
     roomBackground.style.background = `url(${roomObjArray[roomObjPos].background})`
     roomObjPos++
     }
