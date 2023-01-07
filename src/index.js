@@ -37,7 +37,7 @@ $(function(){
 
     $('#apply__presets').click(() => {
         let adultCount = $('.guest__counter .counter__controller #0').get(0).value
-        if(adultCount == 0 && !localStorage) {
+        if(adultCount == 0 || !localStorage) {
             alert('please, enter at least one adult')
             return
         }
@@ -45,21 +45,10 @@ $(function(){
         pageChanger()
     })
     
-    
-
-    
     datepicker.init()
     datepicker.deploy()
 
     $('.card__date .input__container').click(() => $('#datepicker').daterangepicker('open'))
-
-    
-
-
-
-
-    
-    
 })
 
 function roomListListener() {

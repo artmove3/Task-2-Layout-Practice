@@ -64,6 +64,7 @@ export function guestCounter(selector, modifier = '') {
 
     function closeCounter() {
         guestCounter.style.display = 'none'
+        guestCounterBlock.style.borderRadius = '5px'
         
     }
 

@@ -1,5 +1,8 @@
 import '../../styles/styles.scss'
 import { roomObjArray } from './roomObjArray.js'
+import forwardWhite from '../../assets/arrows/forward-white.svg'
+import star from '../../assets/stars/star.svg'
+import starFilled from '../../assets/stars/star_filled.svg'
 
 
 export function optionSwitch() {
@@ -23,48 +26,42 @@ export function optionSwitch() {
 
 export function createRoomList(roomQuantity) {
   let roomObjPos = 0
-    for(let i = 1; i <= roomQuantity; i++){
-    if(roomObjPos > 11) roomObjPos = 0
+  for(let i = 1; i <= roomQuantity; i++) {
+    // make every room count by order
+    roomObjArray[roomObjPos].currentRoom = roomObjPos
+    const currentRoom = require('./listOfRoomCreate.pug')
     const roomListContainer = document.querySelector('.roomList__content_list')
-    const room = document.createElement(`div`)
-    room.setAttribute('class', `roomList__content_room room${i}`)
-    room.innerHTML = `<div class='room__background'>
-                        <div class='room__arrows'>
-                          <div class='arrow_forward'></div>
-                          <div class='arrow_backward'></div>
-                        </div>
-                        <div class='room__pictures_list'>
-                          <div class='picture_1'></div>
-                          <div class='picture_2'></div>
-                          <div class='picture_3'></div>
-                          <div class='picture_4'></div>
-                        </div>
-                      </div>
-                      <div class='room__number_&_price'>
-                        <div class='room__number'>
-                          <h1>N${roomObjArray[roomObjPos].roomNumber}</h1>
-                          <h2>ЛЮКС</h2>
-                        </div>
-                        <div class='room__price'>
-                          <h3>${roomObjArray[roomObjPos].pricePerDay}Р</h3>
-                          <p>в сутки</p>
-                        </div>
-                      </div>
-                      <div class='room__rating_&_comments'>
-                        <div class='room__rating'></div>
-                        <div class='room__comments'>
-                          <h3>${roomObjArray[roomObjPos].comments}</h3>
-                          <p>Отзывов</p>
-                        </div>
-                      </div>
-                      `
-    roomListContainer.appendChild(room)
-    const luxWord = document.querySelector(`.room${i} .room__number h2`)
-    if(!roomObjArray[roomObjPos].isLux) luxWord.style.display = 'none'
-    const roomBackground = document.querySelector(`.room${i}  .room__background`)
-    roomBackground.style.background = `url(${roomObjArray[roomObjPos].background})`
+    roomListContainer.innerHTML += currentRoom(roomObjArray[roomObjPos])
+    printStar(roomObjArray[roomObjPos].rating)
+    selectBackground()
+    // TODO: find the way to apply listener 'click' to all arrows in background slider
+
+    // const arrowBackward = document.getElementById(`arrow_backward${roomObjPos}`)
+    //       arrowBackward.addEventListener('click', () => {
+    //         console.log('click')
+    //       })
     roomObjPos++
-    }
+  }
+
+        function printStar(rating) {
+          const roomRatingBlock = document.getElementById(`room__rating${roomObjPos}`)
+          roomRatingBlock.innerHTML = `<img src=${starFilled} alt='starFilled'/>`
+          for(let j = 2; j <= 5; j++) {
+              if(j <= rating) {
+                roomRatingBlock.innerHTML += `<img src=${starFilled} alt='starFilled'/>`
+                continue
+              }
+              roomRatingBlock.innerHTML += `<img src=${star} alt='star'/>`
+          }
+        }
+
+        function selectBackground(bgNum = 0) {
+          if(bgNum < 0) bgNum = 3
+          if(bgNum > 3) bgNum = 0
+          const roomBackground = document.getElementById(`room__background${roomObjPos}`)
+          
+          roomBackground.style.background = `url(${roomObjArray[roomObjPos].background[bgNum]})`
+        }
 }
 //array with all pages
 const pageArr = []
@@ -73,7 +70,7 @@ export function createPageList(pageNum) {
   const beforePage = document.createElement('div')
   beforePage.setAttribute('class', 'pagelist pagelist_before_page')
   beforePage.innerHTML = `
-  <p>Пред</p>
+  <img src=${forwardWhite} alt='Пред'/>
   `
   pageList.appendChild(beforePage)
   
@@ -97,7 +94,7 @@ export function createPageList(pageNum) {
   const nextPage = document.createElement('div')
   nextPage.setAttribute('class', 'pagelist pagelist_next_page')
   nextPage.innerHTML = `
-  <img src='forward-white.svg' alt='След'/>
+  <img src=${forwardWhite} alt='След'/>
   `
   pageList.appendChild(nextPage)
 
@@ -112,9 +109,9 @@ export function createPageList(pageNum) {
     currentPage.style.color = `#FFF`
     currentPage.style.fontWeight = '700'
     // set visibility for beforePage button if pageNum has min value
-    beforePage.style.display = num == 0 ? 'none' : 'block'
+    beforePage.style.visibility = num == 0 ? 'hidden' : 'visible'
     // set visibility for nextPage button if pageNum has max value
-    nextPage.style.display = num == (pageNum - 1) ? 'none' : 'block'
+    nextPage.style.visibility = num == (pageNum - 1) ? 'hidden' : 'visible'
     // add listeners to slide buttons 
     beforePage.addEventListener('click', () => {
       paintPage(num == 0 ? num : num - 1)
@@ -127,3 +124,4 @@ export function createPageList(pageNum) {
 
   paintPage()
 }
+
