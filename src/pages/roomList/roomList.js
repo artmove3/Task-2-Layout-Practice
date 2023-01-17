@@ -25,15 +25,19 @@ export function optionSwitch() {
 }
 
 export function createRoomList(roomQuantity) {
+
   let roomObjPos = 0
+
   for(let i = 1; i <= roomQuantity; i++) {
     // make every room count by order
     roomObjArray[roomObjPos].currentRoom = roomObjPos
-    const currentRoom = require('./listOfRoomCreate.pug')
+    const roomInstance = require('./listOfRoomCreate.pug')
     const roomListContainer = document.querySelector('.roomList__content_list')
-    roomListContainer.innerHTML += currentRoom(roomObjArray[roomObjPos])
+    const currentRoom = document.createElement('div')
+    currentRoom.innerHTML += roomInstance(roomObjArray[roomObjPos])
+    roomListContainer.appendChild(currentRoom)
     printStar(roomObjArray[roomObjPos].rating)
-    selectBackground()
+    selectBackground(2, roomObjPos)
     // TODO: find the way to apply listener 'click' to all arrows in background slider
 
     // const arrowBackward = document.getElementById(`arrow_backward${roomObjPos}`)
@@ -42,6 +46,7 @@ export function createRoomList(roomQuantity) {
     //       })
     roomObjPos++
   }
+  // changeBackground()
 
         function printStar(rating) {
           const roomRatingBlock = document.getElementById(`room__rating${roomObjPos}`)
@@ -55,14 +60,34 @@ export function createRoomList(roomQuantity) {
           }
         }
 
-        function selectBackground(bgNum = 0) {
-          if(bgNum < 0) bgNum = 3
-          if(bgNum > 3) bgNum = 0
-          const roomBackground = document.getElementById(`room__background${roomObjPos}`)
+        function selectBackground(bgNum = 0, currentRoom) {
           
-          roomBackground.style.background = `url(${roomObjArray[roomObjPos].background[bgNum]})`
+          let roomBackground = document.getElementById(`room__background${currentRoom}`)
+          let arrowBackward = document.getElementById(`arrow_backward${currentRoom}`)
+          let arrowForward = document.getElementById(`arrow_forward${currentRoom}`)
+
+          
+          roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
+
+          arrowBackward.addEventListener('click', () => {
+            // if(bgNum > 3) bgNum = 0
+            bgNum--
+            if(bgNum < 0) bgNum = 3
+            roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
+      
+          })
+          arrowForward.addEventListener('click', () => {
+            bgNum++
+            if(bgNum > 3) bgNum = 0
+            roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
+
+          })
+          
         }
+
 }
+
+
 //array with all pages
 const pageArr = []
 export function createPageList(pageNum) {
