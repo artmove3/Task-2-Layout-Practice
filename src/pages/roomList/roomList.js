@@ -38,16 +38,9 @@ export function createRoomList(roomQuantity) {
     roomListContainer.appendChild(currentRoom)
     printStar(roomObjArray[roomObjPos].rating)
     selectBackground(2, roomObjPos)
-    // TODO: find the way to apply listener 'click' to all arrows in background slider
 
-    // const arrowBackward = document.getElementById(`arrow_backward${roomObjPos}`)
-    //       arrowBackward.addEventListener('click', () => {
-    //         console.log('click')
-    //       })
     roomObjPos++
   }
-  // changeBackground()
-
         function printStar(rating) {
           const roomRatingBlock = document.getElementById(`room__rating${roomObjPos}`)
           roomRatingBlock.innerHTML = `<img src=${starFilled} alt='starFilled'/>`
@@ -70,7 +63,6 @@ export function createRoomList(roomQuantity) {
           roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
 
           arrowBackward.addEventListener('click', () => {
-            // if(bgNum > 3) bgNum = 0
             bgNum--
             if(bgNum < 0) bgNum = 3
             roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
@@ -122,6 +114,12 @@ export function createPageList(pageNum) {
   <img src=${forwardWhite} alt='След'/>
   `
   pageList.appendChild(nextPage)
+  const roomContent = document.querySelector('.roomList__content')
+  // adding description to pagelist
+  const pageDescription = document.createElement('p')
+  pageDescription.innerHTML = `1 - 12 из 100+ вариантов аренды`
+  roomContent.appendChild(pageDescription)
+
 
   function paintPage(num = 0) {
     pageArr.forEach(pageFromArr => {
