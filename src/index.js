@@ -9,6 +9,7 @@ require('moment')
 require('./assets/extensions/jquery.comiseo.daterangepicker.js')
 const landingPage = require('./pages/landing__page/landing__page.pug')
 const roomList = require('./pages/roomList/roomlist.pug')
+const roomDetails = require('./pages/room__details/room__details.pug')
 
 const page = document.querySelector('.page')
 
@@ -25,7 +26,7 @@ function pageChanger() {
     pageParams.dateStr = JSON.parse(localStorage.getItem('dateStr'))
 
     page.innerHTML = currentPage(pageParams)
-    if(currentPage != landingPage) {
+    if(currentPage != landingPage && currentPage != roomDetails) {
         roomListListener()
     }
 }
@@ -35,22 +36,25 @@ $(function(){
 
     guestCounter('.card__guests .input__container')
 
-    $('#apply__presets').click(() => {
+    $('#apply__presets').on('click', () => {
         let adultCount = $('.guest__counter .counter__controller #0').get(0).value
         if(adultCount == 0 || !localStorage) {
             alert('please, enter at least one adult')
             return
         }
+        //move to page roomList
         pageList.push(roomList)
         pageChanger()
     })
+
+    
     
     datepicker.init()
     datepicker.deploy()
 
-    $('.card__date .input__container').click(() => $('#datepicker').daterangepicker('open'))
+    $('.card__date .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
 })
-
+// function that works when page roomList is active
 function roomListListener() {
     datepicker.init()
     datepicker.deploy()
@@ -61,5 +65,10 @@ function roomListListener() {
     
      $('.roomList__options_dates .input__container').click(() => $('#datepicker').daterangepicker('open'))
      optionSwitch()
+    // move to page roomDetails
+     $('*.room__number').on('click', () => {
+        pageList.push(roomDetails)
+        pageChanger()
+    })
 }
 
