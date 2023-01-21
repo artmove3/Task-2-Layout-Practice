@@ -44,3 +44,65 @@
                     h2 Отмена
                     p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
         .room__details_total_price
+            .card
+                .card__number_and_price
+                    .card__number
+                        p № 
+                        h1 888
+                        h3 люкс
+
+                    .card__price_per_day
+                        h3 9 990₽
+                        p в сутки
+                .card__date
+                    .date__entry
+                        h3 прибытие
+                        .input__container
+                            p#entry=dateStrEntry||'ДД.ММ.ГГГГ'
+                            label.button__expand(for="entry")
+                                include ../../assets/arrows/expand.svg
+                    .date__out
+                        h3 выезд
+                        .input__container
+                            p#out=dateStrOut||'ДД.ММ.ГГГГ'
+                            label.button__expand(for="out")
+                                include ../../assets/arrows/expand.svg
+                .card__guests
+                    h3 гости
+                    .input__container
+                        .guests
+                            p#guests=counterStr
+                        label.button__expand(for="guests")
+                            include ../../assets/arrows/expand.svg
+                    .guest__counter
+                        include ../../assets/mixins/counterCreate.pug
+                        +counter('взрослые', 'дети', 'младенцы')
+                        .apply__buttons
+                            h3(class='button__refresh') очистить
+                            h3(class='button__apply') применить
+                .card__calculate_price 
+                    .price_math 
+                        p 9 990₽ х 4 суток
+                    .price_total 
+                        p 39 960₽
+                .card__service
+                    .service_price 
+                        p Сбор за услуги: скидка 2 179₽
+                        include ../../assets/room__details__svg/info_circle.svg
+                    .service_total
+                        p 0₽
+                .card__additional_service 
+                    .additional_service_price 
+                        p Сбор за дополнительные услуги
+                        include ../../assets/room__details__svg/info_circle.svg
+                    .additional_service_total 
+                        p 300₽
+                .card__total_price 
+                    h2 Итого
+                    .dotted_underline 
+                    h2 38 081₽
+
+                        
+                .submit-buttons
+                    include ../../assets/submit-button/submit-button.pug
+                    +btna('apply__presets', 'забронировать')(class="btn btn__withArrow")

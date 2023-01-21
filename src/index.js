@@ -19,15 +19,20 @@ const datepicker = new Calendar('#datepicker')
 
 function pageChanger() {
     let currentPage = pageList[pageList.length - 1]
-    
+    // insert props in pug template from localStorage
     pageParams.count = JSON.parse(localStorage.getItem('count'))
     pageParams.countArr = JSON.parse(localStorage.getItem('countArr'))
     pageParams.counterStr = JSON.parse(localStorage.getItem('counterStr'))
     pageParams.dateStr = JSON.parse(localStorage.getItem('dateStr'))
+    pageParams.dateStrEntry = JSON.parse(localStorage.getItem('dateStrEntry'))
+    pageParams.dateStrOut = JSON.parse(localStorage.getItem('dateStrOut'))
 
     page.innerHTML = currentPage(pageParams)
-    if(currentPage != landingPage && currentPage != roomDetails) {
+    if(currentPage === roomList) {
         roomListListener()
+    }
+    else if(currentPage === roomDetails) {
+        roomDetailsListener()
     }
 }
 
@@ -63,12 +68,20 @@ function roomListListener() {
     createRoomList(12)
     createPageList(3)
     
-     $('.roomList__options_dates .input__container').click(() => $('#datepicker').daterangepicker('open'))
+     $('.roomList__options_dates .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
      optionSwitch()
     // move to page roomDetails
      $('*.room__number').on('click', () => {
         pageList.push(roomDetails)
         pageChanger()
     })
+}
+
+function roomDetailsListener() {
+    datepicker.init()
+    datepicker.deploy()
+    guestCounter('.card__guests .input__container', 'roomDetails')
+
+    $('.room__details_total_price .card__date .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
 }
 

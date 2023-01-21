@@ -42,8 +42,10 @@ export class Calendar {
             change: function() {
                 const range = getRange()
                 $('#entry').html(range.start.toLocaleDateString())
+                localStorage.setItem('dateStrEntry', JSON.stringify(range.start.toLocaleDateString()))
                 if(range.end) { 
                     $('#out').html(range.end.toLocaleDateString())
+                    localStorage.setItem('dateStrOut', JSON.stringify(range.end.toLocaleDateString()))
                     // here i take month shortname from object above 
                     const totalDate = `${range.start.getDate()} ${$.datepicker.regional["ru"].monthNamesShort[range.start.getMonth()]}  - ${range.end.getDate()} ${$.datepicker.regional["ru"].monthNamesShort[range.end.getMonth()]}`
                     localStorage.setItem('dateStr', JSON.stringify(totalDate))
