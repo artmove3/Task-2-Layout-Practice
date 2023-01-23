@@ -58,7 +58,7 @@ export class Calendar {
             clear: function() {
                 $('#entry').html('ДД.ММ.ГГГГ')
                 $('#out').html('ДД.ММ.ГГГГ')
-                localStorage.setItem('dateStr', 'ДД.ММ.ГГГГ')
+                localStorage.setItem('dateStr', '')
             }
             
     });

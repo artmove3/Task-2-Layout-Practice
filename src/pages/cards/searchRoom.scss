@@ -1,15 +1,10 @@
 .card__date {
     display: flex;
     justify-content: space-between;
-
     & .input__container {
         width: 150px;
         max-height: 44px;
         
-    }
-    & .input__container input {
-        width: 20%;
-        flex-grow: 1;
     }
 
     

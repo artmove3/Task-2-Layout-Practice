@@ -1,11 +1,98 @@
 
 
 .room__details {
-
+    &_background {
+        height: 485px;
+        width: 100%;
+        display: flex;
+        .background__big_image {
+            width: 70%;
+            height: 100%;
+            background: url('../assets/pictures/image_1.jpg');
+            background-size: cover;
+        }
+        .background__column {
+            width: 30%;
+            .background_1 {
+                width: 100%;
+                height: 50%;
+                background: url('../assets/pictures/image_6.jpg');
+                background-size: cover;
+            }
+            .background_2 {
+                width: 100%;
+                height: 50%;
+                background: url('../assets/pictures/image_7.jpg');
+                background-size: cover;
+            } 
+        }
+    }
     &_description {
+        margin-top: 70px;
+        .description_text {
+            .text_facilities{
+                display: flex;
+                .facilities_details { 
+                    display: flex;
+                    flex-direction: column;
+                    .details_comfort,
+                    .details_convenience,
+                    .details_cosiness {
+                        display: flex;
+                        padding: 20px 0;
+                        p:first-child{
+                            font-weight: bold;
+                        }
+                        & > div:last-child {
+                            padding-left: 10px;
+                        }
+                    }
+                    .details_convenience,
+                    .details_cosiness {
+                        border-top: 1px solid rgba(31, 32, 65, 0.1);
+                    }
+                }
+
+            }
+            .text_comments {
+                display: flex;
+                flex-direction: column;
+                .text_comments_title {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .comment_1,
+                .comment_2 {
+                    .comment_title {
+                        display: flex;
+                        .comment_avatar {
+                            // height: 80px;
+                            // width: 80px;
+                        }
+                        .title_text {
+                            padding-top: 10px;
+                            p:first-child {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+
+                }
+                .comment_1 {
+                    .comment_avatar {
+                        background: url('../assets/pictures/avatar_1.png') no-repeat;
+                    }
+                }
+                .comment_2 {
+                    .comment_avatar {
+                        background: url('../assets/pictures/avatar_2.png') no-repeat;
+                    }
+                }
+            }
+        }
 
         .room__details_total_price {
-
+            
             .card {
 
                 .card__number_and_price {
