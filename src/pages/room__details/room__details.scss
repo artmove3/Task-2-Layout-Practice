@@ -28,8 +28,10 @@
         }
     }
     &_description {
+        display: flex;
         margin-top: 70px;
         .description_text {
+            padding-right: 70px;
             .text_facilities{
                 display: flex;
                 .facilities_details { 
@@ -63,29 +65,61 @@
                 }
                 .comment_1,
                 .comment_2 {
+                    margin-top: 23px;
                     .comment_title {
                         display: flex;
                         .comment_avatar {
-                            // height: 80px;
-                            // width: 80px;
+                            height: 48px;
+                            min-width: 48px;
+                            background: url('../assets/pictures/avatar_placeholder.jpg') no-repeat;
+                            background-size: cover;
+                            border: 2px solid #fff;
+                            border-radius: 50%
                         }
-                        .title_text {
-                            padding-top: 10px;
+                        .comment_text {
+                            padding-left: 10px;
                             p:first-child {
                                 font-weight: bold;
+                            }
+                            p:last-child {
+                                margin-top: 10px;
                             }
                         }
                     }
 
                 }
-                .comment_1 {
-                    .comment_avatar {
-                        background: url('../assets/pictures/avatar_1.png') no-repeat;
+            }
+            .text__rules_and_cancel_details {
+                margin-top: 30px;
+                display: flex;
+                justify-content: space-between;
+                .text__rules {
+
+                    ul {
+
+                        margin-top: 20px;
+
+                        li {
+                            margin-top: 10px;
+                            padding-left: 1em; 
+                            text-indent: -.7em;
+                        }
+                        li::before {
+                            content: '';
+                            display: inline-block;
+                            background: rgba(31, 32, 65, 0.25);
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                        }
                     }
+
+                    
+                    
                 }
-                .comment_2 {
-                    .comment_avatar {
-                        background: url('../assets/pictures/avatar_2.png') no-repeat;
+                .text__cancel_details {
+                    p {
+                        margin-top: 20px;
                     }
                 }
             }
