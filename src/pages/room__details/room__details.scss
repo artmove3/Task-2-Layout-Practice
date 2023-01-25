@@ -69,6 +69,7 @@
                     .comment_title {
                         display: flex;
                         .comment_avatar {
+                            position: relative;
                             height: 48px;
                             min-width: 48px;
                             background: url('../assets/pictures/avatar_placeholder.jpg') no-repeat;

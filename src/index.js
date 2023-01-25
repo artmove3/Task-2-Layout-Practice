@@ -2,6 +2,7 @@ import {guestCounter} from './scripts/guestCounter.js'
 import './styles/styles.scss'
 import {Calendar} from './scripts/Calendar'
 import {optionSwitch, createRoomList, createPageList} from './pages/roomList/roomList.js'
+import {buttonLikeListener, chartJs} from './pages/room__details/room__details.js'
 
 require('jquery')
 require('webpack-jquery-ui')
@@ -83,5 +84,10 @@ function roomDetailsListener() {
     guestCounter('.card__guests .input__container', 'roomDetails')
 
     $('.room__details_total_price .card__date .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
+
+    buttonLikeListener(`.comment_1 .button_like`)
+    buttonLikeListener(`.comment_2 .button_like`)
+
+    chartJs()
 }
 

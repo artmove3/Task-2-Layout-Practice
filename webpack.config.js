@@ -54,6 +54,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             moment: 'moment'
         }),
+        new webpack.ProvidePlugin({
+            chartJs: 'chart.js'
+        })
     ],
     module: {
         rules: [

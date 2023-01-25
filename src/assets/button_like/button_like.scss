@@ -1,0 +1,23 @@
+.button_like {
+    display: flex;
+
+    align-items: center;
+    position: absolute;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 10px;
+    height: 20px;
+    width: 40px;
+    top: 60px;
+    left: 2px;
+    cursor: pointer;
+    svg,
+    p,
+    img {
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    p {
+        color: rgba(31, 32, 65, 0.25);
+    }
+    
+}

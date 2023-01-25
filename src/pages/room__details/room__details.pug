@@ -29,6 +29,7 @@
                             p Номер оснащён камином
                 .description_impression
                     h2 Впечатления от номера
+                    canvas(id='myChart')
             .text_comments
                 .text_comments_title
                     h2 Отзывы посетителей номера
@@ -36,6 +37,8 @@
                 .comment_1
                     .comment_title
                         .comment_avatar
+                            include ../../assets/button_like/button_like.pug
+                            +btnLike(11)
                         .comment_text
                             p Мурад Сарафанов
                             p 5 дней назад
@@ -43,6 +46,8 @@
                 .comment_2
                     .comment_title
                         .comment_avatar
+                            include ../../assets/button_like/button_like.pug
+                            +btnLike(2)
                         .comment_text
                             p Патрисия Стёклышкова
                             p Неделю назад
