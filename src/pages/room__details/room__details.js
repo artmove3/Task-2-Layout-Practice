@@ -30,17 +30,38 @@ export function buttonLikeListener(selector) {
 
 export function chartJs() {
     const ctx = document.getElementById('myChart');
+    const ct = ctx.getContext('2d');
 
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-        labels: ['Великолепно', 'Хорошо', 'Удовлетворительно', 'Разочарован'],
+        // labels: ['Великолепно', 'Хорошо', 'Удовлетворительно', 'Разочарован'],
         datasets: [{
-            label: '260 голосов',
             data: [2, 1, 1, 0],
-            borderWidth: 1
+            backgroundColor: [
+                getGradient('#FFE39C', '#FFBA9C'),
+                getGradient('#BC9CFF', '#8BA4F9'),
+                getGradient('#6FCF97', '#66D2EA'),
+                getGradient('#909090', '#3D4975')
+            ],
+            borderWidth: 2,
         }]
         },
-        options: {}
+        options: {
+            color: [],
+            cutout: '90%',
+            // radius: 70,
+            rotation: 180,
+            scales: {},
+            plugins: {}
+            
+        }
   });
+
+  function getGradient(colorStart, colorEnd) {
+    const gradient = ct.createLinearGradient(0, 0, 4, 0);
+    gradient.addColorStop(0, colorStart)
+    gradient.addColorStop(1, colorEnd)
+    return gradient
+  }
 }
