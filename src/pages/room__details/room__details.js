@@ -35,7 +35,6 @@ export function chartJs() {
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-        // labels: ['Великолепно', 'Хорошо', 'Удовлетворительно', 'Разочарован'],
         datasets: [{
             data: [2, 1, 1, 0],
             backgroundColor: [
@@ -59,7 +58,7 @@ export function chartJs() {
   });
 
   function getGradient(colorStart, colorEnd) {
-    const gradient = ct.createLinearGradient(0, 0, 4, 0);
+    const gradient = ct.createLinearGradient(-1, 0, -1, 120);
     gradient.addColorStop(0, colorStart)
     gradient.addColorStop(1, colorEnd)
     return gradient

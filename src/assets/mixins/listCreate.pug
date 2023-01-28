@@ -9,3 +9,10 @@ mixin listCheckbox(startWith, [...items])
                 input(id=startWith+index type="checkbox")
                 label(for=startWith+index) 
                     li= item
+mixin listDots(...items)
+    ul 
+        each item in items
+            .list_label
+                .dot_color
+                il= item 
+                

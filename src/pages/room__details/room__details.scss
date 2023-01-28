@@ -56,9 +56,59 @@
                     }
                 }
                 .description_impression {
-                    position: relative; 
+                    margin-right: 100px;
+                    .impression_chart {
+                        display: flex;
+                        align-items: end;
+                        position: relative; 
+                        height: 130px;
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+                            padding-left: 30px;
+                            .list_label {
+                                display: flex;
+                                align-items: center;
+                                .dot_color {
+                                    margin-right: 5px;
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 50%;
+                                }
 
-                    width:400px;
+                            }
+
+                            .list_label:first-child .dot_color {
+                                background: linear-gradient(#FFE39C, #FFBA9C);
+                            } 
+                            
+                            .list_label:nth-child(2) .dot_color {
+                                background: linear-gradient(#6FCF97, #66D2EA);
+                            } 
+
+                            .list_label:nth-child(3) .dot_color {
+                                background: linear-gradient(#BC9CFF, #8BA4F9);
+                            } 
+
+                            .list_label:last-child .dot_color {
+                                background: linear-gradient(#909090, #3D4975);
+                            } 
+                        }
+                        
+
+                        .chart_results {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            position: absolute;
+                            top: 50px;
+                            left: 36px;
+                            & > * {
+                                color: #BC9CFF;
+                            }
+                        }
+                    }
+                    
                 }
 
             }
@@ -101,30 +151,44 @@
                 display: flex;
                 justify-content: space-between;
                 .text__rules {
-
+                    h2 {
+                        padding-left: 30px;
+                    }
                     ul {
-
+                        display: flex;
+                        flex-direction: column;
                         margin-top: 20px;
+                        min-width: 320px;
 
-                        li {
+                        .list_label {
+                            display: flex;
+                            align-items: center;
                             margin-top: 10px;
-                            padding-left: 1em; 
-                            text-indent: -.7em;
+                            .dot_color  {
+                                display: flex;
+                                margin: 0 10px;
+                                background: rgba(31, 32, 65, 0.25);
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 50%;
+                            }
                         }
-                        li::before {
-                            content: '';
-                            display: inline-block;
-                            background: rgba(31, 32, 65, 0.25);
-                            width: 10px;
-                            height: 10px;
-                            border-radius: 50%;
+                        .list_label:last-child {
+                            align-items: start;
+
+                            .dot_color {
+                                margin-top: 5px;
+                                padding: 5px;
+                            }
                         }
+                            
                     }
 
                     
                     
                 }
                 .text__cancel_details {
+                    margin-left: 100px;
                     p {
                         margin-top: 20px;
                     }
