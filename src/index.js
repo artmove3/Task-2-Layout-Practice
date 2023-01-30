@@ -11,6 +11,7 @@ require('./assets/extensions/jquery.comiseo.daterangepicker.js')
 const landingPage = require('./pages/landing__page/landing__page.pug')
 const roomList = require('./pages/roomList/roomlist.pug')
 const roomDetails = require('./pages/room__details/room__details.pug')
+const registration = require('./pages/registration/registration.pug')
 
 const page = document.querySelector('.page')
 
@@ -35,6 +36,9 @@ function pageChanger() {
     else if(currentPage === roomDetails) {
         roomDetailsListener()
     }
+    else if(currentPage === registration) {
+        registrationListener()
+    }
 }
 
 $(function(){
@@ -45,7 +49,7 @@ $(function(){
     $('#apply__presets').on('click', () => {
         let adultCount = $('.guest__counter .counter__controller #0').get(0).value
         if(adultCount == 0 || !localStorage) {
-            alert('please, enter at least one adult')
+            alert('enter at least one adult')
             return
         }
         //move to page roomList
@@ -59,6 +63,11 @@ $(function(){
     datepicker.deploy()
 
     $('.card__date .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
+
+    $('.header__navbar .btn__register').on('click', () => {
+        pageList.push(registration)
+        pageChanger()
+    })
 })
 // function that works when page roomList is active
 function roomListListener() {
@@ -89,5 +98,24 @@ function roomDetailsListener() {
     buttonLikeListener(`.comment_2 .button_like`)
 
     chartJs()
+}
+
+function registrationListener() {
+    let checked = false
+    const specOffersCheckbox = document.querySelector('.special_offers_checkbox')
+    const specCheckboxDot = specOffersCheckbox.querySelector('.checkbox_dot')
+    $('.card__special_offers .special_offers_checkbox').on('click', () => {
+        if(!checked) {
+            specOffersCheckbox.style.justifyContent = 'flex-end'
+            specOffersCheckbox.style.borderColor = 'rgba(188, 156, 255, 1)'
+            specCheckboxDot.style.background = 'rgba(188, 156, 255, 1)'
+            checked = true
+            return
+        }
+        specOffersCheckbox.style.justifyContent = 'flex-start'
+        specOffersCheckbox.style.borderColor = 'rgba(31, 32, 65, 0.25)'
+        specCheckboxDot.style.background = 'rgba(31, 32, 65, 0.25)'
+        checked = false
+    })
 }
 

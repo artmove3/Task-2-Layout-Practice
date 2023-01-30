@@ -21,9 +21,10 @@
             list-style: none;
             margin-left: 20px;
             color: rgba(31, 32, 65, 0.5);
-            &:first-child {
+            &:hover {
                 font-weight: 700;
                 color: #000;
+                cursor: pointer;
             }
         }
         .submit-buttons {
