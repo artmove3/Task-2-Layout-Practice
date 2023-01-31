@@ -16,48 +16,52 @@
         opacity: 0.5;
     }
 
-    &__transparent {
-        position: relative;
-        background: #FFF;
-        background-clip: padding-box;
-        color: #BC9CFF;
-        border: 2px solid transparent;
-        
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            z-index: -1;
-            margin: -2px;
-            border-radius: inherit; 
-            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-        }
+    
+    
+    
+}
 
-        &:active {
-            opacity: 1;
-            &::after {
-                opacity: 0.5; 
-            }
-            
-        }
-
+.btn__transparent {
+    position: relative;
+    background: #FFF;
+    background-clip: padding-box;
+    color: #BC9CFF;
+    border: 2px solid transparent;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+        margin: -2px;
+        border-radius: inherit; 
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     }
-    &__withArrow {
-        margin-top: 10px;
-        padding: 15px 20px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        position: relative;
-        svg {
-            position: absolute;
-            right: 15px;
-            top: 10px;
+
+    &:active {
+        opacity: 1;
+        &::after {
+            opacity: 0.5; 
         }
-
-
         
     }
+
+}
+
+.btn__with_arrow {
+    margin-top: 10px;
+    padding: 15px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    svg {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+    }
+
+
     
 }

@@ -1,13 +1,17 @@
+include ../../assets/submit-button/submit-button.pug
+
 .registration 
     .container
         .card
             .card__title
                 h1 Регистрация аккаунта
             .card__name
-                .input__container
-                    input(type="text", name="name", placeholder="Имя")
-                .input__container 
-                    input(type="text", name="surname", placeholder="Фамилия")
+                label(for="name")
+                    .input__container
+                        input(id="name" type="text", name="name", placeholder="Имя")
+                label(for="surname")
+                    .input__container 
+                        input(id="surname" type="text", name="surname", placeholder="Фамилия")
             .card__gender
                 .gender_male
                     input(id="male", type="radio", name="gender")
@@ -19,23 +23,25 @@
                         p Женщина
             .card__birthday 
                 h3 дата рождения
-                .input__container
-                    input(type="number", name="birthday" placeholder="ДД.ММ.ГГГГ")
+                label(for="birthday")
+                    .input__container
+                        input(id="birthday" type="number", name="birthday" placeholder="ДД.ММ.ГГГГ")
             .card__entry_data 
                 h3 данные для входа в сервис
-                .input__container
-                    input(type="text", name="email", placeholder="Email")
-                .input__container
-                    input(type="text", name="password", placeholder="Пароль")
+                label(for="email")
+                    .input__container
+                        input(id="email" type="text", name="email", placeholder="Email")
+                label(for="password")
+                    .input__container
+                        input(id="password" type="text", name="password", placeholder="Пароль")
             .card__special_offers
                 .special_offers_checkbox
                     .checkbox_dot 
                 p Получать спецпредложения
                 
             .submit-buttons
-                include ../../assets/submit-button/submit-button.pug
-                +btna('register', 'зарегистрироваться')(class="btn btn__withArrow")
+                +btna('btn__sign_up', 'зарегистрироваться')(class="btn btn__with_arrow btn__sign_up")
             .card__sign_in 
                 p Уже есть аккаунт на Toxin
-                include ../../assets/submit-button/submit-button.pug
-                +btn('submit', 'войти')(class="btn btn__transparent btn__sign_in")
+                .submit-buttons
+                    +btn('sign_in', 'войти')(class="btn btn__transparent btn__sign_in")

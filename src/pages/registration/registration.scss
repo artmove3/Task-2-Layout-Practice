@@ -1,4 +1,5 @@
-.registration {   
+.registration,
+.sign_in {   
     height: 830px;
     background: url('../assets/pictures/image_15.png') no-repeat;
     background-size: cover;
@@ -90,6 +91,7 @@
 
             .card__sign_in {
                 display: flex;
+                justify-content: space-between;
             }
         }
     }

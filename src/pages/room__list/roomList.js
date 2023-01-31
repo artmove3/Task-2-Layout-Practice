@@ -8,7 +8,7 @@ import starFilled from '../../assets/stars/star_filled.svg'
 export function optionSwitch() {
     const buttonSwitch = document.querySelector('.optional-comfort_dropdown .input__container')
     const buttonSwitchSVG = document.querySelector('.optional-comfort_dropdown .input__container svg')
-    const list = document.querySelector('.roomList__options_optional-comfort ul')
+    const list = document.querySelector('.room__list__options_optional-comfort ul')
 
     buttonSwitch.addEventListener('click' , () => {
 
@@ -32,7 +32,7 @@ export function createRoomList(roomQuantity) {
     // make every room count by order
     roomObjArray[roomObjPos].currentRoom = roomObjPos
     const roomInstance = require('./listOfRoomCreate.pug')
-    const roomListContainer = document.querySelector('.roomList__content_list')
+    const roomListContainer = document.querySelector('.room__list__content_list')
     const currentRoom = document.createElement('div')
     currentRoom.innerHTML += roomInstance(roomObjArray[roomObjPos])
     roomListContainer.appendChild(currentRoom)
@@ -83,7 +83,7 @@ export function createRoomList(roomQuantity) {
 //array with all pages
 const pageArr = []
 export function createPageList(pageNum) {
-  const pageList = document.querySelector('.roomList__content_pagelist')
+  const pageList = document.querySelector('.room__list__content_pagelist')
   const beforePage = document.createElement('div')
   beforePage.setAttribute('class', 'pagelist pagelist_before_page')
   beforePage.innerHTML = `
@@ -114,7 +114,7 @@ export function createPageList(pageNum) {
   <img src=${forwardWhite} alt='След'/>
   `
   pageList.appendChild(nextPage)
-  const roomContent = document.querySelector('.roomList__content')
+  const roomContent = document.querySelector('.room__list__content')
   // adding description to pagelist
   const pageDescription = document.createElement('p')
   pageDescription.innerHTML = `1 - 12 из 100+ вариантов аренды`

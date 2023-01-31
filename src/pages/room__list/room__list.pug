@@ -1,12 +1,12 @@
-.roomList
-    .roomList__options
-        .roomList__options_dates
+.room__list
+    .room__list__options
+        .room__list__options_dates
             h3 даты пребывания в отеле
             .input__container
                 p#dates=dateStr||'ДД.ММ.ГГГГ'
                 label.button__expand(for="dates")
                     include ../../assets/arrows/expand.svg
-        .roomList__options_guests
+        .room__list__options_guests
             h3 гости
             .input__container
                 p#guests=counterStr
@@ -18,7 +18,7 @@
                 .apply__buttons
                     h3(class='button__refresh') очистить
                     h3(class='button__apply') применить
-        .roomList__options_prices
+        .room__list__options_prices
             .price__text
                 h3 диапазон цены
                 p 5 000₽ - 10 000₽
@@ -27,12 +27,12 @@
                 .range_bar
                 .range_button-2
             p Стоимость за сутки пребывания в номере
-        .roomList__options_rules
+        .room__list__options_rules
             h3 правила дома
             //- for some reason, checkboxes dont work if i set Id startWith from 0
             include ../../assets/mixins/listCreate.pug
             +listCheckbox(3, ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до 10 человек)'])
-        .roomList__options_accessibility
+        .room__list__options_accessibility
             h3 доступность
             ul
                 .checkbox_list
@@ -47,7 +47,7 @@
                         .checkbox_description
                             li Помощник для инвалидов
                             p На 1 этаже вас встретит специалист  и проводит до номера.
-        .roomList__options_comfort
+        .room__list__options_comfort
             h3 удобства номера
             .input__container
                 .room_comfort
@@ -60,15 +60,15 @@
                 .apply__buttons
                     h3(class='button__refresh') очистить
                     h3(class='button__apply') применить
-        .roomList__options_optional-comfort
+        .room__list__options_optional-comfort
             .optional-comfort_dropdown
                 .input__container
                     h3 дополнительные удобства
                     include ../../assets/arrows/expand.svg
             include ../../assets/mixins/listCreate.pug
             +listCheckbox(8, ['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
-    .roomList__content
-        .roomList__content_title
+    .room__list__content
+        .room__list__content_title
             h1 Номера, которые мы для вас подобрали
-        .roomList__content_list
-        .roomList__content_pagelist           
+        .room__list__content_list
+        .room__list__content_pagelist           
