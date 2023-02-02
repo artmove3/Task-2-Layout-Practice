@@ -1,5 +1,4 @@
 import {guestCounter} from './scripts/guestCounter.js'
-import './styles/styles.scss'
 import {Calendar} from './scripts/Calendar'
 import {optionSwitch, createRoomList, createPageList} from './pages/room__list/roomList.js'
 import {buttonLikeListener, chartJs} from './pages/room__details/room__details.js'
@@ -8,19 +7,27 @@ require('jquery')
 require('webpack-jquery-ui')
 require('moment')
 require('./assets/extensions/jquery.comiseo.daterangepicker.js')
+const websitePages = require('./pages/website_pages/website_pages.pug')
+const UIKit = require('./pages/UI_kit/UI_kit.pug')
 const landingPage = require('./pages/landing__page/landing__page.pug')
 const roomList = require('./pages/room__list/room__list.pug')
 const roomDetails = require('./pages/room__details/room__details.pug')
 const registration = require('./pages/registration/registration.pug')
 const sign_in = require('./pages/sign_in/sign_in.pug')
 
-const page = document.querySelector('.page')
+const colorsAndType = require('./pages/UI_kit/colors_&_type.pug')
+const formElements = require('./pages/UI_kit/form_elements.pug')
+const cards = require('./pages/UI_kit/cards.pug')
+const headersAndFooters = require('./pages/UI_kit/headers_&_footers.pug')
 
-const pageList = [landingPage]
+let page
+
+const pageList = []
 const pageParams = {}
 const datepicker = new Calendar('#datepicker')
 
 function pageChanger() {
+    if(!page) page = document.querySelector('.page')
     let currentPage = pageList[pageList.length - 1]
     // insert props in pug template from localStorage
     pageParams.count = JSON.parse(localStorage.getItem('count'))
@@ -53,19 +60,39 @@ function pageChanger() {
 
 $(function(){
 
-    pageChanger()
+    const body = document.querySelector('body')
 
-    // sign up page
-    $('.header__navbar .btn__register').on('click', () => {
-        pageList.push(registration)
+    $('#websitePages').on('click', () => {
+        
+        body.innerHTML = websitePages()
+        pageList.push(landingPage)
         pageChanger()
+
+            // sign up page
+        $('.header__navbar .btn__register').on('click', () => {
+            pageList.push(registration)
+            pageChanger()
+        })
+
+            // sign in page
+        $('.header__navbar .btn__sign_in').on('click', () => {
+            pageList.push(sign_in)
+            pageChanger()
+        })
     })
 
-    // sign in page
-    $('.header__navbar .btn__sign_in').on('click', () => {
-        pageList.push(sign_in)
-        pageChanger()
+    $('#UIKit').on('click', () => {
+        body.innerHTML = UIKit()
+
+        const UIContainer = document.querySelector('.UI_kit')
+        const UIKitList = [colorsAndType, formElements, cards, headersAndFooters]
+        UIContainer.innerHTML = UIKitList[0]()
+
     })
+
+
+
+   
 })
 function landingPageListener() {
     guestCounter('.card__guests .input__container')
@@ -144,7 +171,7 @@ function registrationListener() {
         if(inputName.value && inputSurname.value) {
             localStorage.setItem('name', JSON.stringify(inputName.value))
             localStorage.setItem('surname', JSON.stringify(inputSurname.value))
-            pageList.push(pageList[pageList.length - 2])
+            pageList.push(pageList[0])
             pageChanger()
         }
 
@@ -154,8 +181,6 @@ function registrationListener() {
 function changeHeader() {
     const submitButtons = document.querySelector('.header__navbar .submit-buttons')
     const headerNamespace = require('./pages/header/header__namespace.pug')
-    const name = JSON.parse(localStorage.getItem('name'))
-    const surname = JSON.parse(localStorage.getItem('surname'))
     submitButtons.innerHTML = headerNamespace(pageParams)
 
 }

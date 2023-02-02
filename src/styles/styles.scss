@@ -32,6 +32,24 @@ body {
     color: rgba(31, 32, 65, 0.75);
 }
 
+.page_switcher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+    #websitePages,
+    #UIKit {
+        cursor: pointer;
+        font-size: 42px;
+        margin-top: 20px;
+        color: #BC9CFF;
+        &:hover {
+            color: rgba(31, 32, 65, 0.5);
+        }
+    }
+}
+
 
 .container {
     padding: 0 140px;

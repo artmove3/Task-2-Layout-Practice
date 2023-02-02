@@ -1,0 +1,49 @@
+.colors_and_type 
+    .colors_column
+        include ../../assets/mixins/listCreate.pug
+        +colorList(
+            ["dark_shade1", "Dark Shade 100%", "#1F2041"], 
+            ["dark_shade2", "Dark Shade 75%", "#1F2041"], 
+            ["dark_shade3", "Dark Shade 50%", "#1F2041"], 
+            ["dark_shade4", "Dark Shade 25%", "#1F2041"], 
+            ["dark_shade5", "Dark Shade 5%", "#1F2041"], 
+            ["purple", "Purple", "#BC9CFF"], 
+            ["green", "Green", "#6FCF97"]
+        ) 
+        //- .color_sample(class="dark_shade1") 
+        //- .color_description 
+        //-     h2 Dark Shade 100%
+        //-     h2 #1F2041
+        //- .color_sample(class="dark_shade2") 
+        //- .color_description 
+        //-     h2 Dark Shade 75%
+        //-     h2 #1F2041
+        //- .color_sample(class="dark_shade3") 
+        //- .color_description 
+        //-     h2 Dark Shade 50%
+        //-     h2 #1F2041 
+        //- .color_sample(class="dark_shade4") 
+        //- .color_description 
+        //-     h2 Dark Shade 25%
+        //-     h2 #1F2041
+        //- .color_sample(class="dark_shade5") 
+        //- .color_description 
+        //-     h2 Dark Shade 5%
+        //-     h2 #1F2041
+        //- .color_sample(class="purple")
+        //- .color_description
+        //-     h2 Purple
+        //-     h2 #BC9CFF   
+    .types_column 
+        .H1 
+            h1 H1 
+            h1 This one is the sub-section or widget title
+        .H2
+            h2 H2 
+            h2 Next one is the item title inside widgets
+        .H3 
+            h3 H3 
+            h3 This is a label or CTA text
+        .body 
+            p body 
+            p This is the body text which is used for most of the design, like paragraphs, lists, etc.
