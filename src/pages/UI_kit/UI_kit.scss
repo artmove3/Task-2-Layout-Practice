@@ -1,0 +1,103 @@
+.logo__picture {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.UI_kit {
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0 145px;
+    .UI_kit_content {
+    
+        flex-grow: 2;
+        .colors_and_type {
+
+            display: flex;
+            justify-content: space-between;
+            .colors_column,
+            .types_column {
+
+                display: flex;
+                flex-direction: column;
+
+            }
+            .colors_column {
+                
+                .color_block {
+                    margin-bottom: 20px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .color_sample {
+
+                        height: 70px;
+                        width: 70px;
+                        border-radius: 6px;
+                        
+                    }
+                    .color_description {
+                        margin-left: 40px;
+                        
+                        
+
+                        h2:last-child {
+                            font-weight: 400;
+                        }
+                    }
+
+                    .dark_shade_1 {
+                        background: rgba(31, 32, 65, 1);
+                    }
+
+                    .dark_shade_075 {
+                        background: rgba(31, 32, 65, 0.75);
+                    }
+
+                    .dark_shade_05 {
+                        background: rgba(31, 32, 65, 0.5);
+                    }
+
+                    .dark_shade_025 {
+                        background: rgba(31, 32, 65, 0.25);
+                    }
+
+                    .dark_shade_005 {
+                        background: rgba(31, 32, 65, 0.05);
+                    }
+
+                    .purple {
+                        background: rgba(188, 156, 255, 1);
+                    }
+
+                    .green {
+                        background: rgba(111, 207, 151, 1);
+                    }
+                }
+            }
+
+            .types_column {
+                
+                & > * {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    margin-bottom: 50px;
+                    & > :last-child {
+                        padding-left: 30px;
+                        
+                        
+                    }
+
+                    & > :first-child {
+                        justify-self: flex-end;
+                    }
+                }
+            }
+        }
+    }
+    .UI_kit_backward,
+    .UI_kit_forward {
+        flex-grow: 1;
+    }
+}

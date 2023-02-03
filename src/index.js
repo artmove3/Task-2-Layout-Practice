@@ -69,13 +69,13 @@ $(function(){
         pageChanger()
 
             // sign up page
-        $('.header__navbar .btn__register').on('click', () => {
+        $('.header__navbar .button__register').on('click', () => {
             pageList.push(registration)
             pageChanger()
         })
 
             // sign in page
-        $('.header__navbar .btn__sign_in').on('click', () => {
+        $('.header__navbar .button__sign_in').on('click', () => {
             pageList.push(sign_in)
             pageChanger()
         })
@@ -84,7 +84,7 @@ $(function(){
     $('#UIKit').on('click', () => {
         body.innerHTML = UIKit()
 
-        const UIContainer = document.querySelector('.UI_kit')
+        const UIContainer = document.querySelector('.UI_kit_content')
         const UIKitList = [colorsAndType, formElements, cards, headersAndFooters]
         UIContainer.innerHTML = UIKitList[0]()
 
@@ -167,7 +167,7 @@ function registrationListener() {
         checked = false
     })
 
-    $('.card .btn__sign_up').on('click', () => {
+    $('.card .button__sign_up').on('click', () => {
         if(inputName.value && inputSurname.value) {
             localStorage.setItem('name', JSON.stringify(inputName.value))
             localStorage.setItem('surname', JSON.stringify(inputSurname.value))

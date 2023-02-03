@@ -31,9 +31,9 @@
             display: flex;
             flex-shrink: 0;
             align-items: center;
-            .btn{
-                margin-left: 20px;
-                font-weight: 700;
+            .button__transparent_block {
+                margin: 0 20px;
+                
             }
             .namespace_border {
                 background: rgba(31, 32, 65, 0.1);

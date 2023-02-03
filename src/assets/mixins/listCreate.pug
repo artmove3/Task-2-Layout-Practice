@@ -17,7 +17,8 @@ mixin listDots(...items)
                 il= item 
 mixin colorList(...items) 
     each item in items 
-        .color_sample(class=item[0])
-        .color_description 
-            h2=item[1]
-            h2=item[2]
+        .color_block(class=item[0])
+            .color_sample(class=item[0])
+            .color_description 
+                h2=item[1]
+                h2=item[2]

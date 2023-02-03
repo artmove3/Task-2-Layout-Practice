@@ -1,4 +1,4 @@
-.btn {
+.button {
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     border-radius: 22px;
@@ -21,22 +21,17 @@
     
 }
 
-.btn__transparent {
-    position: relative;
-    background: #FFF;
-    background-clip: padding-box;
-    color: #BC9CFF;
-    border: 2px solid transparent;
-    
 
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: -1;
-        margin: -2px;
-        border-radius: inherit; 
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+.button__transparent_block {
+    display: flex;
+    padding: 2px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    .button__transparent {
+        padding: 10px 20px;
+        background: #FFF;
+        background-clip: border-box;
+        color: #BC9CFF;
     }
 
     &:active {
@@ -49,7 +44,7 @@
 
 }
 
-.btn__with_arrow {
+.button__with_arrow {
     margin-top: 10px;
     padding: 15px 20px;
     width: 100%;
