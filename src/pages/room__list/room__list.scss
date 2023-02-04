@@ -228,15 +228,14 @@
             display: flex;
             justify-content: center;
             & .pagelist {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 39.88px;
                 height: 40px;
                 border-radius: 50%;
                 text-align: center;
-                & p,
-                & img {
-                    //bad
-                    margin-top: 8px;
-                }
+               
             }
             & .pagelist_next_page,
             & .pagelist_before_page {
@@ -244,7 +243,7 @@
                     
 
             }
-            & .pagelist_before_page {
+            & .pagelist_before_page img {
                 transform: rotate(180deg);
             }
         }

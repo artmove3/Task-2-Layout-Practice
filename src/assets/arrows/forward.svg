@@ -1,4 +1,5 @@
-<svg id="Capa_1" enable-background="new 0 0 482.238 482.238" height="24" viewBox="0 0 482.238 482.238" width="24" xmlns="http://www.w3.org/2000/svg"><path fill="url(#Gradient)" d="m275.429 447.793 206.808-206.674-206.74-206.674-24.354 24.287 165.164 165.164h-416.307v34.446h416.306l-165.231 165.231z"/>
+<svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 0.984375L17.0156 9L9 17.0156L7.59375 15.6094L13.1719 9.98438H0.984375V8.01562H13.1719L7.59375 2.39062L9 0.984375Z" fill="url(#Gradient)"/>
 <linearGradient id="Gradient" x1="0" x2="0" y1="0" y2="1">
             <stop style="stop-color:#BC9CFF;" offset="0"/>
             <stop style="stop-color:#8BA4F9;" offset="1"/>

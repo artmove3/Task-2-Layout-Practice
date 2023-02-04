@@ -99,6 +99,7 @@ h3 {
 }
 .input__container input {
     border: none;
+
     &:focus{
         outline: none;
     }
@@ -148,7 +149,6 @@ h3 {
 
 }
 .checkbox_list input:checked+label::before {
-    // background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     background-image: url("../assets/arrows/check.svg");
     border-color: rgba(188, 156, 255, 1);
     

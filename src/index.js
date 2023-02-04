@@ -39,7 +39,7 @@ function pageChanger() {
     if(localStorage.getItem('name') && localStorage.getItem('surname')) {
         pageParams.name = JSON.parse(localStorage.getItem('name'))
         pageParams.surname = JSON.parse(localStorage.getItem('surname'))
-        changeHeader()
+        changeHeader('.header__navbar')
     }
     
 
@@ -59,7 +59,7 @@ function pageChanger() {
 }
 
 $(function(){
-
+    localStorage.clear()
     const body = document.querySelector('body')
 
     $('#websitePages').on('click', () => {
@@ -83,11 +83,32 @@ $(function(){
 
     $('#UIKit').on('click', () => {
         body.innerHTML = UIKit()
-
+        let currenUIKitPage = 0
         const UIContainer = document.querySelector('.UI_kit_content')
         const UIKitList = [colorsAndType, formElements, cards, headersAndFooters]
-        UIContainer.innerHTML = UIKitList[0]()
+        // set name and surname manualy to make header with names sample
+        pageParams.name = 'Юлий'
+        pageParams.surname = 'Цезарь'
 
+        
+        UIContainer.innerHTML = UIKitList[currenUIKitPage]()    
+        $('.UI_kit_backward').on('click', () => {
+            currenUIKitPage = (currenUIKitPage == 0 ? 3 : --currenUIKitPage)
+            UIContainer.innerHTML = UIKitList[currenUIKitPage]()
+            if(currenUIKitPage == 3) {
+                changeHeader('.header_with_namespace .header__navbar')
+                
+            }
+        })
+        $('.UI_kit_forward').on('click', () => {
+            currenUIKitPage = (currenUIKitPage == 3 ? 0 : ++currenUIKitPage)
+            UIContainer.innerHTML = UIKitList[currenUIKitPage]()
+            if(currenUIKitPage == 3) {
+                changeHeader('.header_with_namespace .header__navbar')
+                
+            }
+        })
+        
     })
 
 
@@ -178,8 +199,8 @@ function registrationListener() {
     })
 }
 
-function changeHeader() {
-    const submitButtons = document.querySelector('.header__navbar .submit-buttons')
+function changeHeader(selector) {
+    const submitButtons = document.querySelector(`${selector} .submit-buttons`)
     const headerNamespace = require('./pages/header/header__namespace.pug')
     submitButtons.innerHTML = headerNamespace(pageParams)
 

@@ -1,0 +1,158 @@
+.cards__page 
+    .card(class="search-room")
+        .card__title
+            h1 Найдём номера под ваши пожелания
+        .card__date
+            .date__entry
+                h3 прибытие
+                .input__container
+                    p#entry ДД.ММ.ГГГГ
+                    label.button__expand(for="entry")
+                        include ../../assets/arrows/expand.svg
+            .date__out
+                h3 выезд
+                .input__container
+                    p#out ДД.ММ.ГГГГ
+                    label.button__expand(for="out")
+                        include ../../assets/arrows/expand.svg
+        .card__guests
+            h3 гости
+            .input__container
+                .guests
+                    p Сколько гостей
+                label.button__expand(for="guests")
+                    include ../../assets/arrows/expand.svg
+            .guest__counter
+                include ../../assets/mixins/counterCreate.pug
+                +counter('взрослые', 'дети', 'младенцы')
+                .apply__buttons
+                    h3(class='button__refresh') очистить
+                    h3(class='button__apply') применить
+        .submit-buttons
+            include ../../assets/submit-button/submit-button.pug
+            +buttona('apply__presets', 'подобрать номер')(class="button button__with_arrow")
+    .card(class="registration")
+        .card__title
+            h1 Регистрация аккаунта
+        .card__name
+            label(for="name")
+                .input__container
+                    input(id="name" type="text", name="name", placeholder="Имя")
+            label(for="surname")
+                .input__container 
+                    input(id="surname" type="text", name="surname", placeholder="Фамилия")
+        .card__gender
+            .gender_male
+                input(id="male", type="radio", name="gender")
+                label(for="male")
+                    p Мужчина
+            .gender_female
+                input(id="female", type="radio", name="gender")
+                label(for="female")
+                    p Женщина
+        .card__birthday 
+            h3 дата рождения
+            label(for="birthday")
+                .input__container
+                    input(id="birthday" type="number", name="birthday" placeholder="ДД.ММ.ГГГГ")
+        .card__entry_data 
+            h3 данные для входа в сервис
+            label(for="email")
+                .input__container
+                    input(id="email" type="text", name="email", placeholder="Email")
+            label(for="password")
+                .input__container
+                    input(id="password" type="text", name="password", placeholder="Пароль")
+        .card__special_offers
+            .special_offers_checkbox
+                .checkbox_dot 
+            p Получать спецпредложения
+                
+        .submit-buttons
+            +buttona('button__sign_up', 'зарегистрироваться')(class="button button__with_arrow button__sign_up")
+        .card__sign_in 
+            p Уже есть аккаунт на Toxin
+            .submit-buttons
+                +buttonTransparent('sign_in', 'войти')(class="button button__transparent button__sign_in")
+    .card(class="room__details")
+
+
+        .card__number_and_price
+            .card__number
+                p № 
+                h1 888
+                h3 люкс
+
+            .card__price_per_day
+                h3 9 990₽
+                p в сутки
+        .card__date
+            .date__entry
+                h3 прибытие
+                .input__container
+                    p#entry=dateStrEntry||'ДД.ММ.ГГГГ'
+                    label.button__expand(for="entry")
+                        include ../../assets/arrows/expand.svg
+            .date__out
+                h3 выезд
+                .input__container
+                    p#out=dateStrOut||'ДД.ММ.ГГГГ'
+                    label.button__expand(for="out")
+                        include ../../assets/arrows/expand.svg
+        .card__guests
+            h3 гости
+            .input__container
+                .guests
+                    p#guests=counterStr
+                label.button__expand(for="guests")
+                    include ../../assets/arrows/expand.svg
+            .guest__counter
+                include ../../assets/mixins/counterCreate.pug
+                +counter('взрослые', 'дети', 'младенцы')
+                .apply__buttons
+                    h3(class='button__refresh') очистить
+                    h3(class='button__apply') применить
+        .card__calculate_price 
+            .price_math 
+                p 9 990₽ х 4 суток
+            .price_total 
+                p 39 960₽
+        .card__service
+            .service_price 
+                p Сбор за услуги: скидка 2 179₽
+                include ../../assets/room__details__svg/info_circle.svg
+            .service_total
+                p 0₽
+        .card__additional_service 
+            .additional_service_price 
+                p Сбор за дополнительные услуги
+                include ../../assets/room__details__svg/info_circle.svg
+            .additional_service_total 
+                p 300₽
+        .card__total_price 
+            h2 Итого
+            .dotted_underline 
+            h2 38 081₽
+
+                        
+        .submit-buttons
+            include ../../assets/submit-button/submit-button.pug
+            +buttona('apply__presets', 'забронировать')(class="button button__with_arrow")
+    .card(class="sign_in")
+        .card__title
+            h1 Войти
+        .card__entry_data 
+            label(for="email")
+                .input__container
+                    input(id="email" type="text", name="email", placeholder="Email")
+            label(for="password")
+                .input__container
+                    input(id="password" type="text", name="password", placeholder="Пароль")
+        .submit-buttons
+            +buttona('enter', 'войти')(class="button button__with_arrow button__sign_up")
+        .card__registration
+            p Нет аккаунта на Toxin?
+            .submit-buttons
+                +buttonTransparent('enter', 'создать')(class="button button__transparent button__register")
+    .datepicker 
+    .room__list_example 
