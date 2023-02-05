@@ -24,7 +24,7 @@ export function optionSwitch() {
     
 }
 
-export function createRoomList(roomQuantity) {
+export function createRoomList(selector, roomQuantity) {
 
   let roomObjPos = 0
 
@@ -32,12 +32,12 @@ export function createRoomList(roomQuantity) {
     // make every room count by order
     roomObjArray[roomObjPos].currentRoom = roomObjPos
     const roomInstance = require('./listOfRoomCreate.pug')
-    const roomListContainer = document.querySelector('.room__list__content_list')
+    const roomListContainer = document.querySelector(selector)
     const currentRoom = document.createElement('div')
     currentRoom.innerHTML += roomInstance(roomObjArray[roomObjPos])
     roomListContainer.appendChild(currentRoom)
     printStar(roomObjArray[roomObjPos].rating)
-    selectBackground(2, roomObjPos)
+    selectBackground(roomObjPos)
 
     roomObjPos++
   }
@@ -53,24 +53,35 @@ export function createRoomList(roomQuantity) {
           }
         }
 
-        function selectBackground(bgNum = 0, currentRoom) {
+        function selectBackground(currentRoom, bgNum = 0) {
           
           let roomBackground = document.getElementById(`room__background${currentRoom}`)
           let arrowBackward = document.getElementById(`arrow_backward${currentRoom}`)
           let arrowForward = document.getElementById(`arrow_forward${currentRoom}`)
-
+          let backgroundDots = document.getElementById(`room__background_dots${currentRoom}`)
           
+          let currentBackgroundDotsArr = backgroundDots.querySelectorAll('.dot')
+          currentBackgroundDotsArr[bgNum].setAttribute('class', 'dot_painted')
+  
           roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
 
           arrowBackward.addEventListener('click', () => {
             bgNum--
             if(bgNum < 0) bgNum = 3
+            currentBackgroundDotsArr.forEach(dot => {
+              dot.removeAttribute('class')
+            })
+            currentBackgroundDotsArr[bgNum].setAttribute('class', 'dot_painted')
             roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
       
           })
           arrowForward.addEventListener('click', () => {
             bgNum++
             if(bgNum > 3) bgNum = 0
+            currentBackgroundDotsArr.forEach(dot => {
+              dot.removeAttribute('class')
+            })
+            currentBackgroundDotsArr[bgNum].setAttribute('class', 'dot_painted')
             roomBackground.style.background = `url(${roomObjArray[currentRoom].background[bgNum]})`
 
           })

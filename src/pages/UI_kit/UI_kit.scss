@@ -4,15 +4,14 @@
 }
 
 .UI_kit {
-    
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 60px 0 145px;
     .UI_kit_content {
-    
         flex-grow: 2;
         .colors_and_type {
-
+            padding: 0 150px;
             display: flex;
             justify-content: space-between;
             .colors_column,
@@ -114,9 +113,45 @@
                 }
             }
         }
+
+        .cards__page {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 0 140px;
+            & > *:not(.datepicker) {
+                margin: 20px;
+            }
+        }
     }
     .UI_kit_backward,
     .UI_kit_forward {
-        flex-grow: 1;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        
+        svg {
+            top: 50%;
+            visibility: hidden;
+        }
+
+    }
+
+    .UI_kit_backward:hover,
+    .UI_kit_forward:hover {
+        svg {
+            visibility: visible;
+        }
+        
+    }
+
+    .UI_kit_forward {
+       right: 0;
+       
+    }
+    .UI_kit_backward {
+        svg {
+            transform: rotate(180deg);
+        }
     }
 }

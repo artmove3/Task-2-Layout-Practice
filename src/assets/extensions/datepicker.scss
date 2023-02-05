@@ -1,3 +1,4 @@
+
 body .ui-datepicker {  
     border: 1px solid rgba(31, 32, 65, 0.25);
     box-sizing: border-box;
@@ -7,7 +8,6 @@ body .ui-datepicker {
     width: 320px;
     min-height: 369px;
     padding: 20px;
-
 }
 
 .ui-datepicker .ui-datepicker-calendar {
@@ -123,9 +123,7 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
     display: none;
 }
 
-.card__date button {
-   display: none;
-}
+
 
 .comiseo-daterangepicker-buttonpanel {
     width: 320px;

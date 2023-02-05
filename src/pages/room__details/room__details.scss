@@ -196,52 +196,5 @@
             }
         }
 
-        .room__details_total_price {
-            
-            .card {
-
-                .card__number_and_price {
-                    display: flex;
-                    justify-content: space-between;
-
-                    .card__number {
-                        display: flex;
-                        align-items: end;
-                        p {
-                            font-weight: bold;
-                            color: #000;
-                        }
-                        h3 {
-                            color: #BC9CFF;
-                        }
-                    }
-
-                    .card__price_per_day {
-                        display: flex;
-                        h3,
-                        p {
-                            color: rgba(31, 32, 65, 0.5);
-                        }
-                    }
-                }
-                .card__calculate_price,
-                .card__service,
-                .card__additional_service {
-                    display: flex;
-                    justify-content: space-between;
-                    .service_price,
-                    .additional_service_price {
-                        display: flex;
-                    }
-                }
-                .card__total_price {
-                    display: flex;
-                    .dotted_underline {
-                        width: 57%;
-                        border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
-                    }
-                }
-            }
-        }
     }
 }

@@ -4,6 +4,7 @@ export class Calendar {
     }
     init() {
         $.datepicker.regional["ru"] = {
+            initialText: "",
             closeText: "Закрыть",
             prevText: "&#x3C;Пред",
             nextText: "След&#x3E;",
@@ -58,7 +59,11 @@ export class Calendar {
             clear: function() {
                 $('#entry').html('ДД.ММ.ГГГГ')
                 $('#out').html('ДД.ММ.ГГГГ')
-                localStorage.setItem('dateStr', '')
+                localStorage.removeItem('dateStr')
+                localStorage.removeItem('dateStrOut')
+                localStorage.removeItem('dateStrEntry')
+
+                
             }
             
     });

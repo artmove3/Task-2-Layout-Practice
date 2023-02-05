@@ -90,23 +90,17 @@ $(function(){
         pageParams.name = 'Юлий'
         pageParams.surname = 'Цезарь'
 
-        
+        $().on()
         UIContainer.innerHTML = UIKitList[currenUIKitPage]()    
         $('.UI_kit_backward').on('click', () => {
             currenUIKitPage = (currenUIKitPage == 0 ? 3 : --currenUIKitPage)
             UIContainer.innerHTML = UIKitList[currenUIKitPage]()
-            if(currenUIKitPage == 3) {
-                changeHeader('.header_with_namespace .header__navbar')
-                
-            }
+            UIKitListListener(currenUIKitPage)
         })
         $('.UI_kit_forward').on('click', () => {
             currenUIKitPage = (currenUIKitPage == 3 ? 0 : ++currenUIKitPage)
             UIContainer.innerHTML = UIKitList[currenUIKitPage]()
-            if(currenUIKitPage == 3) {
-                changeHeader('.header_with_namespace .header__navbar')
-                
-            }
+            UIKitListListener(currenUIKitPage)
         })
         
     })
@@ -142,7 +136,7 @@ function roomListListener() {
     datepicker.deploy()
     guestCounter('.room__list__options_comfort .input__container', 'furniture')
     guestCounter('.room__list__options_guests .input__container', 'babyCount')
-    createRoomList(12)
+    createRoomList('.room__list__content_list', 12)
     createPageList(3)
     
      $('.room__list__options_dates .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
@@ -206,3 +200,19 @@ function changeHeader(selector) {
 
 }
 
+function UIKitListListener(page) {
+    if(page == 3) {
+        changeHeader('.header_with_namespace .header__navbar')
+        
+    }
+
+    if(page == 2) {
+        datepicker.init()
+        datepicker.deploy()
+        $('.card__date .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
+
+        createRoomList('.room__list_example ', 2)
+
+    }
+    
+}

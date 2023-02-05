@@ -14,7 +14,7 @@ import Image13 from "../../assets/pictures/image_13.jpg"
 export const roomObjArray = [
     {
         roomNumber: Math.floor((Math.random()) * 100),
-        background: [Image2, Image2, Image3, Image4],
+        background: [Image2, Image3, Image4, Image5],
         isLux: 'ЛЮКС',
         pricePerDay: 9990 + '₽',
         comments: Math.floor((Math.random()) * 10),
