@@ -1,0 +1,96 @@
+.form_elements
+    .input_samples_and_buttons
+        .input_samples
+            .card__input 
+                .input__title 
+                    h3 Text Field
+                    h3 Default
+                label(for="default")
+                    .input__container
+                        input(id="default" type="text" placeholder="Email")
+            .card__input_active 
+                .input__title 
+                    h3 Text Field
+                    h3 Hover / Focus
+                label(for="active")
+                    .input__container
+                        input(id="active" type="text" value="This is pretty awesome")
+                            
+            .card__guests
+                    h3 Dropdown
+                    .input__container
+                        .guests
+                            p Сколько гостей
+                        label.button__expand(for="guests")
+                            include ../../assets/arrows/expand.svg
+            .card__birthday 
+                    h3 masked text field
+                    label(for="birthday")
+                        .input__container
+                            input(id="birthday" type="number", name="birthday" placeholder="ДД.ММ.ГГГГ" disabled)
+            .card__date
+                    .date__entry
+                        h3 date Dropdown
+                        .input__container
+                            p#entry ДД.ММ.ГГГГ
+                            label.button__expand(for="entry")
+                                include ../../assets/arrows/expand.svg
+                    .date__out
+                        h3 date Dropdown
+                        .input__container
+                            p#out 19.08.2019
+                            label.button__expand(for="out")
+                                include ../../assets/arrows/expand.svg
+        .input_samples_small
+            .input__date_filter
+                h3 filter date dropdown
+                .input__container
+                    p#dates=dateStr||'19 авг - 23 авг'
+                    label.button__expand(for="dates")
+                        include ../../assets/arrows/expand.svg
+
+            .input__subscribe
+                h3 subscription text field
+                .input__container
+                    input(type="text" placeholder='Email')
+                    .input__button
+                        include ../../assets/arrows/forward.svg
+        .input_samples_checkbox
+            h3 Checkbox Buttons 
+            include ../../assets/mixins/listCreate.pug
+            +listCheckbox(3, ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до 10 человек)'])
+        
+        .gender_title 
+                h3 Radio Buttons  
+        .card__gender
+              
+            .gender_male
+                input(id="male", type="radio", name="gender")
+                label(for="male")
+                    p Мужчина
+            .gender_female
+                input(id="female", type="radio", name="gender")
+                label(for="female")
+                    p Женщина
+        .toggle_text 
+            h3 toggle            
+        .card__special_offers
+                .special_offers_checkbox
+                    .checkbox_dot 
+                p Получать спецпредложения
+        .card__special_offers
+                .special_offers_checkbox(class="checked")
+                    .checkbox_dot 
+                p Получать спецпредложения
+        .button_like_text 
+            h3 like button
+        .comment_avatar
+            include ../../assets/button_like/button_like.pug
+            +buttonLike(2)
+        .comment_avatar(class="selected")
+            +buttonLike(12)
+        .rate_button
+            h3 rate button
+            .rate_examples
+                .button_rating1
+                .button_rating2    

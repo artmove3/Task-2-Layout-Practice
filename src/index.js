@@ -164,21 +164,17 @@ function roomDetailsListener() {
 function registrationListener() {
     let checked = false
     const specOffersCheckbox = document.querySelector('.special_offers_checkbox')
-    const specCheckboxDot = specOffersCheckbox.querySelector('.checkbox_dot')
     const inputName = document.getElementById('name')
     const inputSurname = document.getElementById('surname')
 
     $('.card__special_offers .special_offers_checkbox').on('click', () => {
         if(!checked) {
-            specOffersCheckbox.style.justifyContent = 'flex-end'
-            specOffersCheckbox.style.borderColor = 'rgba(188, 156, 255, 1)'
-            specCheckboxDot.style.background = 'rgba(188, 156, 255, 1)'
+            specOffersCheckbox.classList.add('checked')
             checked = true
             return
         }
-        specOffersCheckbox.style.justifyContent = 'flex-start'
-        specOffersCheckbox.style.borderColor = 'rgba(31, 32, 65, 0.25)'
-        specCheckboxDot.style.background = 'rgba(31, 32, 65, 0.25)'
+
+        specOffersCheckbox.classList.remove('checked')
         checked = false
     })
 

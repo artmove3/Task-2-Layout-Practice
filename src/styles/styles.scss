@@ -84,12 +84,16 @@ h3 {
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 4px;
     max-height: 44px;
+    max-width: 320px;
     
     &:focus,
-    &:active {
+    &:active,
+    &:hover {
         border: 1px solid rgba(31, 32, 65, 0.5);
     }
 }
+
+.input__container
 
 .input__container .active {
     border: 1px solid rgba(31, 32, 65, 0.5);
@@ -101,11 +105,23 @@ h3 {
 }
 .input__container input {
     border: none;
-
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     &:focus{
         outline: none;
     }
 }
+
+input::placeholder {
+    color: rgba(31, 32, 65, 0.25);
+    font-family: 'Montserrat', sans-serif !important;
+}
+input:not([value=""]) {
+    color: rgba(31, 32, 65, 0.75);
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 
 .card {
     display: flex;
@@ -159,10 +175,7 @@ h3 {
             border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
         }
     }
-    input::placeholder {
-        color: rgba(31, 32, 65, 0.25);
-        font-family: 'Montserrat', sans-serif !important;
-    }
+    
     .card__name,
     .card__entry_data {
         .input__container:last-child {
@@ -171,73 +184,8 @@ h3 {
     }
 
 
-    .card__gender {
-        display: flex;
-        input[type=radio] {
-            display: none;
-        }
-
-        label {
-            display: inline-block;
-            cursor: pointer;
-            position: relative;
-            padding-left: 25px;
-            p {
-                color: rgba(31, 32, 65, 0.5);
-            }
-            &::before {
-                content: "";
-                display: inline-block;
-                width: 22px;
-                height: 22px;
-                position: absolute;
-                left: 0;
-                bottom: 2px;
-                background: url('../assets/pictures/Rectangle 3.png') 0 0 no-repeat;
-            }
-        }
-        input[type=radio]:checked + label {
-            p {
-                color: rgba(31, 32, 65, 0.75);
-            }
-        }
-
-        input[type=radio]:checked + label:before {
-            background: url('../assets/pictures/Rectangle 2.png') 0 0 no-repeat;
-        }
-
-
-        
-        & > * {
-            display: flex;
-            margin-right: 20px;
-            p {
-                padding-left: 5px;
-            }
-        }
-
-    }
-    .card__special_offers{
-        display: flex;
-        align-items: center;
-        .special_offers_checkbox {
-            display: flex;
-            align-items: center;
-            padding: 4px;
-            height: 20px;
-            width: 40px;
-            border: 1px solid rgba(31, 32, 65, 0.25);
-            border-radius: 10px;
-            margin-right: 10px;
-            cursor: pointer;
-            .checkbox_dot {
-                width: 12px;
-                height: 12px;
-                background: rgba(31, 32, 65, 0.25);
-                border-radius: 10px;
-            }
-        }
-    }
+    
+    
     .card__registration {
         display: flex;
         justify-content: space-between;
@@ -250,6 +198,82 @@ h3 {
     }
 
 } 
+
+.card__gender {
+    display: flex;
+    input[type=radio] {
+        display: none;
+    }
+
+    label {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding-left: 25px;
+        p {
+            color: rgba(31, 32, 65, 0.5);
+        }
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            background: url('../assets/pictures/Rectangle 3.png') 0 0 no-repeat;
+        }
+    }
+    input[type=radio]:checked + label {
+        p {
+            color: rgba(31, 32, 65, 0.75);
+        }
+    }
+
+    input[type=radio]:checked + label:before {
+        background: url('../assets/pictures/Rectangle 2.png') 0 0 no-repeat;
+    }
+
+
+    
+    & > * {
+        display: flex;
+        margin-right: 20px;
+        p {
+            padding-left: 5px;
+        }
+    }
+
+}
+
+.card__special_offers {
+    display: flex;
+    align-items: center;
+    .special_offers_checkbox {
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        height: 20px;
+        width: 40px;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        border-radius: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        .checkbox_dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(31, 32, 65, 0.25);
+            border-radius: 10px;
+        }
+    }
+    .checked {
+        justify-content: flex-end;
+        border-color: rgba(188, 156, 255, 1);
+        .checkbox_dot {
+            background: rgba(188, 156, 255, 1);
+        }
+    }
+}
 
 .card > * {
     margin-top: 20px;
