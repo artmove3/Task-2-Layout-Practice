@@ -159,6 +159,11 @@
                 }
                 .rate_button {
                     margin-top: 80px;
+                    .rate_examples {
+                        img {
+                            margin-left: 3px;
+                        }
+                    }
                 }
 
                 .selected {
@@ -172,6 +177,52 @@
                         svg {
                             background-image: url('../assets/room__details__svg/button_heart_filled.svg');
                         }
+                    }
+                }
+                .room__list__options_prices {
+                    width: 266px;
+                }
+                .input_buttons {
+                    display: flex;
+                    flex-direction: column;
+                    .buttons_example {
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        & > * {
+                            display: flex;
+                            & > :last-child:not(:only-child) {
+                                margin-left: 20px;
+                            }
+                        }
+                        & > *:not(:first-child)  {
+                            margin-top: 30px;
+                        }
+                        .button_row_borderless {
+                            cursor: pointer;
+                            h3:first-child {
+                                color:#BC9CFF;
+                            }
+                            h3:last-child {
+                                color: rgba(31, 32, 65, 0.5);
+                            }
+                        }
+                        .button_row_arrow {
+                            width: 320px;
+                        }
+
+                    }
+
+                    
+                }
+                .input_pagination {
+                    .pagination_example {
+                        .pagelist_block {
+                            display: flex;
+                            justify-content:flex-start ;
+                            margin-right: 90px;
+                        }
+                        
                     }
                 }
         }

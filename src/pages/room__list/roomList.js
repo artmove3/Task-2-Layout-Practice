@@ -93,22 +93,20 @@ export function createRoomList(selector, roomQuantity) {
 
 //array with all pages
 const pageArr = []
-export function createPageList(pageNum) {
-  const pageList = document.querySelector('.room__list__content_pagelist')
+export function createPageList(selector, pageNum) {
+  const pageList = document.querySelector(selector)
+  const pageListBlock = document.createElement('div')
+  pageListBlock.setAttribute('class', 'pagelist_block')
   const beforePage = document.createElement('div')
   beforePage.setAttribute('class', 'pagelist pagelist_before_page')
-  beforePage.innerHTML = `
-  <img src=${forwardWhite} alt='Пред'/>
-  `
-  pageList.appendChild(beforePage)
+  beforePage.innerHTML = `<img src=${forwardWhite} alt='Пред'/>`
+  pageListBlock.appendChild(beforePage)
   
   
-  for(let i = 1; i <= pageNum; i++) {
+  for(let i = 1; i <= 3; i++) {
     const page = document.createElement('div')
     page.setAttribute('class', `pagelist pagelist_page${i}`)
-    page.innerHTML = `
-    <p>${i}</p>
-    `
+    page.innerHTML = `<p>${i}</p>`
     pageArr.push(page)
 
     page.addEventListener('click', () => {
@@ -116,20 +114,31 @@ export function createPageList(pageNum) {
       const clickedPage = +page.getAttribute('class').slice(-1)
       paintPage(clickedPage - 1)
       })
-    pageList.appendChild(page)
+    pageListBlock.appendChild(page)
 
   }
+  const pagePlaceholder = document.createElement('div')
+  pagePlaceholder.setAttribute('class', 'pagelist pagelist_placeholder')
+  pagePlaceholder.innerHTML = `<p>...</p>`
+  pageListBlock.appendChild(pagePlaceholder)
+
+  const lastPage = document.createElement('div')
+  lastPage.setAttribute('class', 'pagelist pagelist_placeholder')
+  lastPage.innerHTML = `<p>${pageNum}</p>`
+  pageListBlock.appendChild(lastPage)
+
   const nextPage = document.createElement('div')
   nextPage.setAttribute('class', 'pagelist pagelist_next_page')
-  nextPage.innerHTML = `
-  <img src=${forwardWhite} alt='След'/>
-  `
-  pageList.appendChild(nextPage)
-  const roomContent = document.querySelector('.room__list__content')
+  nextPage.innerHTML = `<img src=${forwardWhite} alt='След'/>`
+  pageListBlock.appendChild(nextPage)
+  pageList.appendChild(pageListBlock)
+  const pageListDescription = document.createElement('div')
+  pageListDescription.setAttribute('class', 'pagelist_description')
   // adding description to pagelist
   const pageDescription = document.createElement('p')
   pageDescription.innerHTML = `1 - 12 из 100+ вариантов аренды`
-  roomContent.appendChild(pageDescription)
+  pageListDescription.appendChild(pageDescription)
+  pageList.appendChild(pageListDescription)
 
 
   function paintPage(num = 0) {
@@ -151,7 +160,7 @@ export function createPageList(pageNum) {
       paintPage(num == 0 ? num : num - 1)
     }, { once: true })
     nextPage.addEventListener('click', () => {
-      paintPage(num == (pageNum - 1) ? num : num + 1)
+      paintPage(num == 2 ? num : num + 1)
     }, { once: true })
 
   }

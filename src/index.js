@@ -2,6 +2,8 @@ import {guestCounter} from './scripts/guestCounter.js'
 import {Calendar} from './scripts/Calendar'
 import {optionSwitch, createRoomList, createPageList} from './pages/room__list/roomList.js'
 import {buttonLikeListener, chartJs} from './pages/room__details/room__details.js'
+import { UIKitListListener } from './pages/UI_kit/UIKit.js'
+import { changeHeader } from './pages/header/header.js'
 
 require('jquery')
 require('webpack-jquery-ui')
@@ -39,7 +41,7 @@ function pageChanger() {
     if(localStorage.getItem('name') && localStorage.getItem('surname')) {
         pageParams.name = JSON.parse(localStorage.getItem('name'))
         pageParams.surname = JSON.parse(localStorage.getItem('surname'))
-        changeHeader('.header__navbar')
+        changeHeader('.header__navbar', pageParams)
     }
     
 
@@ -86,9 +88,7 @@ $(function(){
         let currenUIKitPage = 0
         const UIContainer = document.querySelector('.UI_kit_content')
         const UIKitList = [colorsAndType, formElements, cards, headersAndFooters]
-        // set name and surname manualy to make header with names sample
-        pageParams.name = 'Юлий'
-        pageParams.surname = 'Цезарь'
+        
 
         $().on()
         UIContainer.innerHTML = UIKitList[currenUIKitPage]()    
@@ -137,7 +137,7 @@ function roomListListener() {
     guestCounter('.room__list__options_comfort .input__container', 'furniture')
     guestCounter('.room__list__options_guests .input__container', 'babyCount')
     createRoomList('.room__list__content_list', 12)
-    createPageList(3)
+    createPageList('.room__list__content_pagelist', 15)
     
      $('.room__list__options_dates .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
      optionSwitch()
@@ -189,26 +189,5 @@ function registrationListener() {
     })
 }
 
-function changeHeader(selector) {
-    const submitButtons = document.querySelector(`${selector} .submit-buttons`)
-    const headerNamespace = require('./pages/header/header__namespace.pug')
-    submitButtons.innerHTML = headerNamespace(pageParams)
 
-}
 
-function UIKitListListener(page) {
-    if(page == 3) {
-        changeHeader('.header_with_namespace .header__navbar')
-        
-    }
-
-    if(page == 2) {
-        datepicker.init()
-        datepicker.deploy()
-        $('.card__date .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
-
-        createRoomList('.room__list_example ', 2)
-
-    }
-    
-}

@@ -94,3 +94,31 @@
             .rate_examples
                 .button_rating1
                 .button_rating2    
+        .room__list__options_prices
+            .price__text
+                h3 Range Slider
+                p 5 000₽ - 10 000₽
+            .price__range
+                .range_button-1
+                .range_bar
+                .range_button-2
+        .input_buttons
+            .buttons_text
+                h3 buttons
+            .buttons_example
+                include ../../assets/submit-button/submit-button.pug
+                .button_row
+                    +button('button_example1', 'click me')(class='button')
+                    +button('button_example2', 'click me')(class='button clicked')
+                .button_row_transparent    
+                    +buttonTransparent('button_example3', 'click me')(class='button button__transparent')
+                    +buttonTransparent('button_example4', 'click me')(class='button button__transparent clicked')
+                .button_row_borderless 
+                    h3 click me
+                    h3 click me
+                .button_row_arrow 
+                    +buttona('button_example5', 'перейти к оплате')(class='button button__with_arrow')
+        .input_pagination 
+            .pagination_text 
+                h3 pagination
+            .pagination_example

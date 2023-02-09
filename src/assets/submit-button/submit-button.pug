@@ -1,8 +1,9 @@
-mixin button(type, name)
-    a(id=id)&attributes(attributes)= name
+mixin button(id, name)
+    .button__block 
+        a(id=id)&attributes(attributes)= name
 mixin buttona(id, name)
     a(id=id)&attributes(attributes)= name
         include ../arrows/forward-white.svg
 mixin buttonTransparent(id, name)
-    .button__transparent_block 
+    .button__block 
         a(id=id)&attributes(attributes)= name

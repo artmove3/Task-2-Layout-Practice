@@ -23,11 +23,13 @@
 }
 
 
-.button__transparent_block {
+.button__block {
     display: flex;
     padding: 2px;
     border-radius: 22px;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    
+    
     .button__transparent {
         padding: 10px 20px;
         background: #FFF;

@@ -122,6 +122,31 @@ input:not([value=""]) {
     font-family: 'Montserrat', sans-serif !important;
 }
 
+//pagelist styles
+
+.pagelist_block {
+    display: flex;
+    justify-content: center;
+    & .pagelist {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 39.88px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+               
+        }
+    & .pagelist_next_page,
+    & .pagelist_before_page {
+        background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+                    
+
+        }
+    & .pagelist_before_page img {
+        transform: rotate(180deg);
+    }
+}
 
 .card {
     display: flex;
@@ -145,8 +170,14 @@ input:not([value=""]) {
                 font-weight: bold;
                 color: #000;
             }
+            h1 {
+                margin-left: 3px;
+                line-height: 29.26px;
+            }
             h3 {
+                margin-left: 5px;
                 color: #BC9CFF;
+                line-height: 17.5px;
             }
         }
 
@@ -155,6 +186,9 @@ input:not([value=""]) {
             h3,
             p {
                 color: rgba(31, 32, 65, 0.5);
+            }
+            h3 {
+                margin-right: 3px;
             }
         }
     }
