@@ -126,6 +126,7 @@
                 display: flex;
                 flex-shrink: 2;
                 justify-content: space-between;
+                align-items: center;
                 
                 
             }
@@ -141,6 +142,7 @@
                     h3,
                     p {
                         color: rgba(31, 32, 65, 0.5);
+                        line-height: 18px;
                     }
                 }
 
@@ -180,12 +182,13 @@
             }
             .room__rating_and_comments {
                 padding: 0 20px 20px 20px;
-
+                
                 .room__comments {
                     display: flex;
                     h3,
                     p {
                         color: rgba(31, 32, 65, 0.5);
+                        line-height: 18px;
                     }
 
                     h3 {
@@ -209,6 +212,7 @@
                 height: 150px;
                 background-size: cover;
                 position: relative;
+                border-radius: 4px 4px 0 0;
                 .room__background_dots {
                     position: absolute;
                     display: flex;

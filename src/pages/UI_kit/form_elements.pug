@@ -122,3 +122,17 @@
             .pagination_text 
                 h3 pagination
             .pagination_example
+    .input_dropdowns_and_checkbox 
+        .dropdowns_column 
+            .input_dropdown
+                .dropdown_text 
+                    h3 dropdown
+                .dropdown_example
+                    .input__container
+                        .guests
+                            p Сколько гостей
+                        label.button__expand(for="guests")
+                            include ../../assets/arrows/expand.svg
+                    .guest__counter
+                        include ../../assets/mixins/counterCreate.pug
+                        +counter('спальни', 'кровати', 'ванные комнаты')

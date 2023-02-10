@@ -66,14 +66,17 @@ h3 {
 
 h1 {
     font-size: 24px;
+    line-height: 29.26px;
 }
 
 h2 {
     font-size: 19px;
+    line-height: 23.16px;
 }
 
 h3 {
     font-size: 12px;
+    line-height: 14.63px;
     text-transform: uppercase;
 }
 
@@ -148,6 +151,8 @@ input:not([value=""]) {
     }
 }
 
+// cards styles
+
 .card {
     display: flex;
     flex-direction: column;
@@ -159,6 +164,28 @@ input:not([value=""]) {
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
+    .card__date {
+        display: flex;
+        
+        & .input__container {
+            width: 150px;
+            max-height: 44px;
+            
+        }
+        .date__out {
+            margin-left: 20px;
+    
+        }
+        
+    
+        
+    }
+    .card__guests {
+        position: relative;
+        width: 320px;
+    
+    }
+    
     .card__number_and_price {
         display: flex;
         justify-content: space-between;
@@ -183,9 +210,13 @@ input:not([value=""]) {
 
         .card__price_per_day {
             display: flex;
+            align-items: end;
+
             h3,
             p {
                 color: rgba(31, 32, 65, 0.5);
+                line-height: 18px;
+                
             }
             h3 {
                 margin-right: 3px;
@@ -220,21 +251,20 @@ input:not([value=""]) {
 
     
     
-    .card__registration {
-        display: flex;
-        justify-content: space-between;
-    }
-        
-
+    .card__registration,
     .card__sign_in {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
+        
+
 
 } 
 
 .card__gender {
     display: flex;
+    margin-top: 10px;
     input[type=radio] {
         display: none;
     }
@@ -283,6 +313,7 @@ input:not([value=""]) {
 .card__special_offers {
     display: flex;
     align-items: center;
+    margin-top: 10px;
     .special_offers_checkbox {
         display: flex;
         align-items: center;
@@ -311,6 +342,10 @@ input:not([value=""]) {
 
 .card > * {
     margin-top: 20px;
+}
+
+.card > *:first-child {
+    margin-top: 10px;
 }
 
 // checkbox styles

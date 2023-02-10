@@ -12,15 +12,15 @@ include ../../assets/submit-button/submit-button.pug
                 label(for="surname")
                     .input__container 
                         input(id="surname" type="text", name="surname", placeholder="Фамилия")
-            .card__gender
-                .gender_male
-                    input(id="male", type="radio", name="gender")
-                    label(for="male")
-                        p Мужчина
-                .gender_female
-                    input(id="female", type="radio", name="gender")
-                    label(for="female")
-                        p Женщина
+                .card__gender
+                    .gender_male
+                        input(id="male", type="radio", name="gender")
+                        label(for="male")
+                            p Мужчина
+                    .gender_female
+                        input(id="female", type="radio", name="gender")
+                        label(for="female")
+                            p Женщина
             .card__birthday 
                 h3 дата рождения
                 label(for="birthday")
@@ -34,10 +34,10 @@ include ../../assets/submit-button/submit-button.pug
                 label(for="password")
                     .input__container
                         input(id="password" type="text", name="password", placeholder="Пароль")
-            .card__special_offers
-                .special_offers_checkbox
-                    .checkbox_dot 
-                p Получать спецпредложения
+                .card__special_offers
+                    .special_offers_checkbox
+                        .checkbox_dot 
+                    p Получать спецпредложения
                 
             .submit-buttons
                 +buttona('button__sign_up', 'зарегистрироваться')(class="button button__with_arrow button__sign_up")

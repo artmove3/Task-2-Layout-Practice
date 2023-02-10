@@ -119,10 +119,20 @@
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
+            align-items: start;
             padding: 0 140px;
+            height: 1350px;
             & > *:not(.datepicker) {
                 margin: 20px;
             }
+
+            .registration {
+                height: 646px;
+            }
+            .sign_in {
+                height: 358px;
+            }
+
         }
 
         .form_elements {
@@ -220,7 +230,6 @@
                         .pagelist_block {
                             display: flex;
                             justify-content:flex-start ;
-                            margin-right: 90px;
                         }
                         
                     }
