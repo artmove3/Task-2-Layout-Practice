@@ -140,7 +140,7 @@ function roomListListener() {
     createPageList('.room__list__content_pagelist', 15)
     
      $('.room__list__options_dates .input__container').on('click', () => $('#datepicker').daterangepicker('open'))
-     optionSwitch()
+     optionSwitch('.room__list__options_optional-comfort')
     // move to page roomDetails
      $('*.room__number').on('click', () => {
         pageList.push(roomDetails)

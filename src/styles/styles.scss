@@ -52,6 +52,10 @@ body {
     }
 }
 
+.input__title {
+    margin-bottom: 5px;
+}
+
 
 .container {
     padding: 0 140px;
@@ -96,7 +100,7 @@ h3 {
     }
 }
 
-.input__container
+
 
 .input__container .active {
     border: 1px solid rgba(31, 32, 65, 0.5);
@@ -106,15 +110,26 @@ h3 {
     height: 100%;
     cursor: pointer;
 }
+
+input,
 .input__container input {
     border: none;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
     &:focus{
         outline: none;
     }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    
+    margin: 0; 
+}
+
+
 
 input::placeholder {
     color: rgba(31, 32, 65, 0.25);
@@ -230,7 +245,9 @@ input:not([value=""]) {
         justify-content: space-between;
         .service_price,
         .additional_service_price {
+            width: 239px;
             display: flex;
+            justify-content: space-between;
         }
     }
     .card__total_price {

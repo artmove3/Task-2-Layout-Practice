@@ -6,6 +6,6 @@ mixin counter(...items)
             .counter__controller
                 label(for=index)
                     button(class='button__minus' disabled) -
-                input(id=index type="number" class='counter' value=0 readonly)
+                input(id=index type='text' class='counter' value=0 inputmode='numeric')
                 label(for=index)
                     button(class='button__plus') +

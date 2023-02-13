@@ -22,12 +22,14 @@ include ../../assets/submit-button/submit-button.pug
                         label(for="female")
                             p Женщина
             .card__birthday 
-                h3 дата рождения
+                .input__title
+                    h3 дата рождения
                 label(for="birthday")
                     .input__container
                         input(id="birthday" type="number", name="birthday" placeholder="ДД.ММ.ГГГГ")
-            .card__entry_data 
-                h3 данные для входа в сервис
+            .card__entry_data
+                .input__title 
+                    h3 данные для входа в сервис
                 label(for="email")
                     .input__container
                         input(id="email" type="text", name="email", placeholder="Email")

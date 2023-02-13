@@ -4,6 +4,8 @@ import { changeHeader } from '../header/header.js'
 import { Calendar } from '../../scripts/Calendar'
 import { createRoomList } from '../room__list/roomList'
 import { createPageList } from '../room__list/roomList'
+import { guestCounter } from '../../scripts/guestCounter'
+import { optionSwitch } from '../room__list/roomList'
 
 export function UIKitListListener(page) {
     if(page == 3) {
@@ -42,6 +44,10 @@ export function UIKitListListener(page) {
         printStarExample(`.rate_examples .button_rating1`, 4)
         printStarExample(`.rate_examples .button_rating2`, 5)
         createPageList(`.pagination_example`, 15)
+        guestCounter(`.dropdown_example .input__container`, `furniture`)
+        guestCounter(`.dropdown_and_checkbox_column .input__container`, ``)
+        optionSwitch(`.checkbox_dropdown`)
+
     }
     
 }

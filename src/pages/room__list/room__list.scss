@@ -23,6 +23,8 @@
             & .price__text {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
             }
             & .price__range {
                 display: flex;
@@ -80,14 +82,19 @@
             display: flex;
             justify-content: space-between;
             border: none;
+            align-items: center;
             padding-left: 0;
             & svg {
                 transform: none;
             }
         }
+        &_optional-comfort {
+            position: relative;
+        }
 
         &_optional-comfort ul {
             display: none;
+            position: absolute;
         }
 
     }

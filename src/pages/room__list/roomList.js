@@ -5,10 +5,10 @@ import star from '../../assets/stars/star.svg'
 import starFilled from '../../assets/stars/star_filled.svg'
 
 
-export function optionSwitch() {
-    const buttonSwitch = document.querySelector('.optional-comfort_dropdown .input__container')
-    const buttonSwitchSVG = document.querySelector('.optional-comfort_dropdown .input__container svg')
-    const list = document.querySelector('.room__list__options_optional-comfort ul')
+export function optionSwitch(selector) {
+    const buttonSwitch = document.querySelector(`${selector} .optional-comfort_dropdown .input__container`)
+    const buttonSwitchSVG = document.querySelector(`${selector} .optional-comfort_dropdown .input__container svg`)
+    const list = document.querySelector(`${selector} ul`)
 
     buttonSwitch.addEventListener('click' , () => {
 

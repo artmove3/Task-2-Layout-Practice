@@ -1,14 +1,16 @@
 .room__list
     .room__list__options
         .room__list__options_dates
-            h3 даты пребывания в отеле
+            .input__title
+                h3 даты пребывания в отеле
             .input__container
                 p#dates=dateStr||'ДД.ММ.ГГГГ'
                 label.button__expand(for="dates")
                     include ../../assets/arrows/expand.svg
         d#datepicker        
         .room__list__options_guests
-            h3 гости
+            .input__title
+                h3 гости
             .input__container
                 p#guests=counterStr
                 label.button__expand(for="guests") 
@@ -34,7 +36,8 @@
             include ../../assets/mixins/listCreate.pug
             +listCheckbox(3, ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до 10 человек)'])
         .room__list__options_accessibility
-            h3 доступность
+            .input__title
+                h3 доступность
             ul
                 .checkbox_list
                     input(id=6 type="checkbox")
@@ -49,7 +52,8 @@
                             li Помощник для инвалидов
                             p На 1 этаже вас встретит специалист  и проводит до номера.
         .room__list__options_comfort
-            h3 удобства номера
+            .input__title
+                h3 удобства номера
             .input__container
                 .room_comfort
                     p Удобства номера

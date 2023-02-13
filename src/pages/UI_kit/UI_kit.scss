@@ -137,11 +137,24 @@
 
         .form_elements {
             padding: 0 140px;
+
+            .input__title {
+                margin-bottom: 5px;
+            }
+
             .input_samples_and_buttons {
                 height: 700px;
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
+
+                .input_samples_checkbox,
+                .card__gender,
+                .card__toggle,
+                .input_buttons {
+                    margin-bottom: 40px;
+                }
+
                 .input_samples {
                     max-width: 320px;
                 
@@ -156,11 +169,45 @@
                             }
                         }
                     }
+
+                    .card__input,
+                    .card__input_active,
+                    .card__guests {
+                        margin-bottom: 20px;
+                    }
+
+                    .card__date {
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 40px 0;
+                        .date__entry,
+                        .date__out {
+                            h3{
+                                margin-bottom: 5px;
+                            }
+
+                            .input__container {
+                                width: 150px;
+                            }
+                        }
+                    }
                 }
                 .input_samples_small {
                     max-width: 267px;
-                    // design  ¯\_(ツ)_/¯
+
+                    .input__date_filter {
+                        margin-bottom: 40px;
+                    }
                 }
+                .input_samples_checkbox,
+                .rate_button,
+                .buttons_text,
+                .pagination_text {
+                    h3 {
+                        margin-bottom: 16px;
+                    }
+                }
+
                 .comment_avatar {
                     position: relative;
                     .button_like {
@@ -170,27 +217,23 @@
                 .rate_button {
                     margin-top: 80px;
                     .rate_examples {
+                        display: flex;
+                        
+                        .button_rating2 {
+                            margin-left: 20px;
+                        }
+
                         img {
                             margin-left: 3px;
                         }
                     }
                 }
 
-                .selected {
-                    position: relative;
-                    .button_like {
-                        left: 50px;
-                        border-color: #BC9CFF;
-                        p {
-                            color: #BC9CFF;
-                        }
-                        svg {
-                            background-image: url('../assets/room__details__svg/button_heart_filled.svg');
-                        }
-                    }
-                }
+                
                 .room__list__options_prices {
                     width: 266px;
+                    
+                    
                 }
                 .input_buttons {
                     display: flex;
@@ -235,7 +278,202 @@
                     }
                 }
         }
+            .input_dropdowns_and_checkbox {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 300px;
+                .dropdowns_column {
+                    width: 266px;
+                    .input_dropdown {
+                        margin-bottom: 40px;
+                        .dropdown_example {
+                            position: relative;
+                        }
+                        
+                    }
+                    .checkbox_dropdown {
+                        
+                        .input__container {
+                            display: flex;
+                            justify-content: space-between;
+                            border: none;
+                            padding-left: 0;
+                            align-items: center;
+                            & svg {
+                                transform: none;
+                            }
+                        }
+                        ul {
+                            display: none;
+                            
+                        }
+                    }
+                    
+                    
+                }
+                .dropdown_and_checkbox_column {
+                    width: 320px;
+                    .input_dropdown {
+                        margin-bottom: 40px;
+                        .dropdown_example {
+                            position: relative;
+                        }
+                    }
+                    
+                    .rich_checkbox {
+                        .checkbox_text {
+                            margin-bottom: 16px;
+                        }
+
+                        .checkbox_example {
+                            label::before {
+                                align-self: flex-start;
+                            }
+                            ul {
+                                .checkbox_list {
+                                    .checkbox_description {
+                                        flex-direction: column;
+                                        justify-content: flex-start;
+                                        li {
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }   
+                }
+
+                .text__rules_and_cancel_details {
+                    margin-top: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    .text__rules {
+                        h2 {
+                            padding-left: 30px;
+                        }
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+                            min-width: 320px;
+    
+                            .list_label {
+                                display: flex;
+                                align-items: center;
+                                margin-top: 10px;
+                                .dot_color  {
+                                    display: flex;
+                                    margin: 0 10px;
+                                    background: rgba(31, 32, 65, 0.25);
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 50%;
+                                }
+                            }
+                            .list_label:last-child {
+                                align-items: start;
+    
+                                .dot_color {
+                                    margin-top: 5px;
+                                    padding: 5px;
+                                }
+                            }    
+                        }
+                    }  
+                }
+            }
+
+            .facilities_and_comments {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 190px;
+                margin-top: 100px;
+
+                .facilities_details { 
+                    width: 280px;
+                    display: flex;
+                    flex-direction: column;
+                    .details_comfort,
+                    .details_convenience,
+                    .details_cosiness {
+                        display: flex;
+                        align-items: center;
+                        padding: 20px 0;
+                        .facilities_icon {
+                            width: 48px;
+                            height: 48px;
+                            display: flex;
+                            justify-content: center;
+                        }
+                        p:first-child{
+                            font-weight: bold;
+                        }
+                        & > div:last-child {
+                            padding-left: 10px;
+                        }
+                    }
+                    .details_convenience,
+                    .details_comfort {
+                        border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+                    }
+                }
+
+                .text_comments {
+                    display: flex;
+                    flex-direction: column;
+                    width: 700px;
+                    
+                    .comment_1 {
+                        margin-top: 23px;
+                        .comment_title {
+                            display: flex;
+                            .comment_avatar {
+                                position: relative;
+                                height: 48px;
+                                min-width: 48px;
+                                background: url('../assets/pictures/avatar_placeholder.jpg') no-repeat;
+                                background-size: cover;
+                                border: 2px solid #fff;
+                                border-radius: 50%
+                            }
+                            .comment_text {
+                                padding-left: 10px;
+                                p:first-child {
+                                    font-weight: bold;
+                                }
+                                p:last-child {
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+    
+                    }
+                }
+            }
+
             
+        }
+        .selected {
+            position: relative;
+            .button_like {
+                
+                border-color: #BC9CFF;
+                p {
+                    color: #BC9CFF;
+                }
+                svg {
+                    background-image: url('../assets/room__details__svg/button_heart_filled.svg');
+                }
+            }
+        }
+        .comment_avatar+.selected {
+            .button_like {
+                &:first-child {
+                    left: 50px;
+                }
+            }
         }
     }
     .UI_kit_backward,

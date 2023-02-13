@@ -17,14 +17,16 @@
                         input(id="active" type="text" value="This is pretty awesome")
                             
             .card__guests
-                    h3 Dropdown
+                    .input__title
+                        h3 Dropdown
                     .input__container
                         .guests
                             p Сколько гостей
                         label.button__expand(for="guests")
                             include ../../assets/arrows/expand.svg
-            .card__birthday 
-                    h3 masked text field
+            .card__birthday
+                    .input__title 
+                        h3 masked text field
                     label(for="birthday")
                         .input__container
                             input(id="birthday" type="number", name="birthday" placeholder="ДД.ММ.ГГГГ" disabled)
@@ -43,14 +45,16 @@
                                 include ../../assets/arrows/expand.svg
         .input_samples_small
             .input__date_filter
-                h3 filter date dropdown
+                .input__title
+                    h3 filter date dropdown
                 .input__container
                     p#dates=dateStr||'19 авг - 23 авг'
                     label.button__expand(for="dates")
                         include ../../assets/arrows/expand.svg
 
             .input__subscribe
-                h3 subscription text field
+                .input__title
+                    h3 subscription text field
                 .input__container
                     input(type="text" placeholder='Email')
                     .input__button
@@ -58,7 +62,7 @@
         .input_samples_checkbox
             h3 Checkbox Buttons 
             include ../../assets/mixins/listCreate.pug
-            +listCheckbox(3, ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до 10 человек)'])
+            +listCheckbox(1, ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей (до 10 человек)'])
         
         .gender_title 
                 h3 Radio Buttons  
@@ -72,16 +76,17 @@
                 input(id="female", type="radio", name="gender")
                 label(for="female")
                     p Женщина
-        .toggle_text 
-            h3 toggle            
-        .card__special_offers
-                .special_offers_checkbox
-                    .checkbox_dot 
-                p Получать спецпредложения
-        .card__special_offers
-                .special_offers_checkbox(class="checked")
-                    .checkbox_dot 
-                p Получать спецпредложения
+        .card__toggle
+            .toggle_text 
+                h3 toggle            
+            .card__special_offers
+                    .special_offers_checkbox
+                        .checkbox_dot 
+                    p Получать спецпредложения
+            .card__special_offers
+                    .special_offers_checkbox(class="checked")
+                        .checkbox_dot 
+                    p Получать спецпредложения
         .button_like_text 
             h3 like button
         .comment_avatar
@@ -125,7 +130,30 @@
     .input_dropdowns_and_checkbox 
         .dropdowns_column 
             .input_dropdown
-                .dropdown_text 
+                .input__title
+                    h3 dropdown
+                .dropdown_example
+                    .input__container
+                        .guests
+                            p dropdown
+                        label.button__expand(for="guests")
+                            include ../../assets/arrows/expand.svg
+                    .guest__counter
+                        include ../../assets/mixins/counterCreate.pug
+                        +counter('спальни', 'кровати', 'ванные комнаты')
+                        .apply__buttons
+                            h3(class='button__refresh') очистить
+                            h3(class='button__apply') применить
+            .checkbox_dropdown
+                .optional-comfort_dropdown
+                    .input__container
+                        h3 expandable checkbox list
+                        include ../../assets/arrows/expand.svg
+                include ../../assets/mixins/listCreate.pug
+                +listCheckbox(4, ['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
+        .dropdown_and_checkbox_column
+            .input_dropdown
+                .input__title
                     h3 dropdown
                 .dropdown_example
                     .input__container
@@ -135,4 +163,55 @@
                             include ../../assets/arrows/expand.svg
                     .guest__counter
                         include ../../assets/mixins/counterCreate.pug
-                        +counter('спальни', 'кровати', 'ванные комнаты')
+                        +counter('взрослые', 'дети', 'младенцы')
+                        .apply__buttons
+                            h3(class='button__refresh') очистить
+                            h3(class='button__apply') применить
+            .rich_checkbox 
+                .checkbox_text 
+                    h3 rich Checkbox Buttons
+                .checkbox_example 
+                    ul
+                        .checkbox_list
+                            input(id=10 type="checkbox")
+                            label(for=10)
+                                .checkbox_description
+                                    li Широкий коридор
+                                    p Ширина коридоров в номере не менее 91 см.
+                        .checkbox_list
+                            input(id=11 type="checkbox")
+                            label(for=11)
+                                .checkbox_description
+                                    li Помощник для инвалидов
+                                    p На 1 этаже вас встретит специалист  и проводит до номера.
+
+        .text__rules_and_cancel_details
+            .rules_title 
+                h3 bullet list
+                .text__rules
+                    include ../../assets/mixins/listCreate.pug
+                    +listDots('Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00')
+    .facilities_and_comments
+        .facilities_details
+            .details_comfort
+                .facilities_icon
+                    include ../../assets/room__details__svg/emoji_smile.svg
+                .facilities_text
+                    p Комфорт
+                    p Шумопоглощающие стены
+            .details_convenience
+                .facilities_icon
+                    include ../../assets/room__details__svg/building.svg
+                .facilities_text 
+                    p Удобство
+                    p Окно в каждой из спален
+        .text_comments
+            .comment_1
+                .comment_title
+                    .comment_avatar(class="selected")
+                        include ../../assets/button_like/button_like.pug
+                        +buttonLike(12)
+                    .comment_text
+                        p Мурад Сарафанов
+                        p 5 дней назад
+                        p Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.

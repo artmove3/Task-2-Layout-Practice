@@ -41,8 +41,15 @@
                     .details_comfort,
                     .details_convenience,
                     .details_cosiness {
+
                         display: flex;
                         padding: 20px 0;
+                        .facilities_icon {
+                            width: 48px;
+                            height: 48px;
+                            display: flex;
+                            justify-content: center;
+                        }
                         p:first-child{
                             font-weight: bold;
                         }

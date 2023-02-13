@@ -3,20 +3,23 @@
         h1 Найдём номера под ваши пожелания
     .card__date
         .date__entry
-            h3 прибытие
+            .input__title
+                h3 прибытие
             .input__container
                 p#entry ДД.ММ.ГГГГ
                 label.button__expand(for="entry")
                     include ../../assets/arrows/expand.svg
         d#datepicker
         .date__out
-            h3 выезд
+            .input__title
+                h3 выезд
             .input__container
                 p#out ДД.ММ.ГГГГ
                 label.button__expand(for="out")
                     include ../../assets/arrows/expand.svg
     .card__guests
-        h3 гости
+        .input__title
+            h3 гости
         .input__container
             .guests
                 p Сколько гостей
