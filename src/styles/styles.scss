@@ -59,6 +59,9 @@ body {
 
 .container {
     padding: 0 140px;
+    @media(max-width:1180px) {
+        padding: 0;
+    }
 }
 
 h1,

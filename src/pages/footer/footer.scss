@@ -1,5 +1,6 @@
 .footer {
     display: flex;
+    justify-content: space-between;
     height: 372px;
     padding-top: 100px;
     &__description {
@@ -39,7 +40,7 @@
     &__subscribe {
         .input__container {
             margin-top: 20px;
-            width: 260px;
+            max-width: 260px;
         }
     }
 

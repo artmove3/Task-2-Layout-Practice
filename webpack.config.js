@@ -20,6 +20,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: filename('js'),
+        // publicPath: "https://artmove3.github.io/Task-2-Layout-Practice/",
     },
     devServer: {
 
