@@ -1,10 +1,24 @@
 .room__list {
     display: flex;
     padding: 30px 140px;
-
+    @media(max-width:800px) {
+        padding: 30px;
+    }
+    @media(max-width:630px) {
+        flex-direction: column;
+        padding: 30px 5px;
+        align-items: center;
+    }
     &__options {
         width: 435px;
-        
+        display: flex;
+        flex-direction: column;
+        @media(max-width:630px) {
+            align-items: center;
+        }
+        &_dates {
+            width: 266px;
+        }
         &_guests,
         &_prices,
         &_rules,
@@ -12,6 +26,7 @@
         &_comfort,
         &_optional-comfort {
             margin-top: 30px;
+            width: 266px;
         }
         &_guests,
         &_comfort {
@@ -89,10 +104,16 @@
             }
         }
         &_optional-comfort {
+            @media(max-width:630px) {
+                position: static;
+            }
             position: relative;
         }
 
         &_optional-comfort ul {
+            @media(max-width:630px) {
+                position: static;
+            }
             display: none;
             position: absolute;
         }
@@ -104,6 +125,10 @@
         flex-direction: column;
         flex-wrap: wrap;
         padding-left: 60px;
+        @media(max-width:630px) {
+            padding-left: 0;
+        }
+       
         
         & h1 {
             margin-bottom: 20px;
@@ -293,6 +318,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            @media(max-width:800px) {
+                align-items: start;
+            }
+            @media(max-width:630px) {
+                align-items: center;
+            }
+            
             .pagelist_description {
                 margin-left: 30px;
                 margin-top: 10px;

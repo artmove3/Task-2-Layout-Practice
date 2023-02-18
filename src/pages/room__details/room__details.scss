@@ -29,12 +29,22 @@
     }
     &_description {
         display: flex;
+        @media(max-width:1024px) {
+            flex-direction: column;
+        }
         margin-top: 70px;
         .description_text {
             padding-right: 70px;
+            @media(max-width:480px) {
+                padding-right: 5px;
+            }
             .text_facilities{
                 display: flex;
                 justify-content: space-between;
+                @media(max-width:750px) {
+                    flex-direction: column;
+                    margin: 0 30px;
+                }
                 .facilities_details { 
                     display: flex;
                     flex-direction: column;
@@ -122,6 +132,13 @@
             .text_comments {
                 display: flex;
                 flex-direction: column;
+                @media(max-width:750px) {
+                    margin: 30px 0 0 30px;
+                }
+
+                @media(max-width:400px) {
+                    margin: 30px 0 0 5px;
+                }
                 .text_comments_title {
                     display: flex;
                     justify-content: space-between;
@@ -157,6 +174,9 @@
                 margin-top: 30px;
                 display: flex;
                 justify-content: space-between;
+                @media(max-width:750px) {
+                    flex-direction: column;
+                }
                 .text__rules {
                     h2 {
                         padding-left: 30px;
@@ -196,6 +216,9 @@
                 }
                 .text__cancel_details {
                     margin-left: 100px;
+                    @media(max-width:750px) {
+                        margin: 30px;
+                    }
                     p {
                         margin-top: 20px;
                     }

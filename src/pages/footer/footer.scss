@@ -1,8 +1,12 @@
 .footer {
     display: flex;
     justify-content: space-between;
-    height: 372px;
-    padding-top: 100px;
+    margin: 100px 0;
+    @media(max-width:900px) {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
     &__description {
         display: flex;
         flex-direction: column;
@@ -10,6 +14,9 @@
     &__description .description__logo {
         display: flex;
         align-items: center;
+        @media(max-width:900px) {
+            display: none;
+        }
     }
     &__description .description__text {
         max-width: 260px;
@@ -20,6 +27,10 @@
         display: flex;
         justify-content: space-around;
         flex-basis: 66%;
+        @media(max-width:900px) {
+            flex-direction: column;
+            align-items: start;
+        }
 
     }
     ul {
@@ -33,6 +44,9 @@
                 font-size: 12px;
             }
             &:not(:first-child) {
+                @media(max-width:900px) {
+                    margin-top: 0;
+                }
                 margin-top: 20px;
             }
         }
